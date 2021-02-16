@@ -1,0 +1,33 @@
+
+
+
+.login-btn-nav:hover{
+  color: hsla(24, 100%, 50%, 1);
+  border-color: hsla(24, 100%, 50%, 1);
+}
+
+.ant-btn-primary{
+  background-color: hsla(24, 100%, 50%, 1);
+  border-color: hsla(24, 100%, 50%, 1);
+}
+
+
+
+/* .footer{
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-pad{
+  padding-top: 3em;
+  padding-bottom: 2em;
+}
+
+ul{
+  list-style: none;
+  padding: 2px;
+}
+
+.footer-item{
+  margin-right: 20px;
+} */

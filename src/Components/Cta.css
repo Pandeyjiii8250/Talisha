@@ -1,0 +1,23 @@
+.special-head{
+    margin-top:20px;
+    margin-bottom: 10px;
+    color:white;
+    line-height: 80px;
+}
+
+.special-para{
+    margin-top: 51px;
+    margin-bottom: 51px;
+    letter-spacing: 2px;
+    line-height: 30px;
+    color: white;
+}
+
+.cta-container{
+    width: 28em;
+    height: auto;
+}
+
+.cta-btn{
+    margin-right: 40px;
+}
