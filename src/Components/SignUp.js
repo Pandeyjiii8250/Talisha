@@ -1,15 +1,22 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './SignUp.css';
-import {AuthProvider} from './Contex/AuthContex';
 import Testing from './Testing';
+import PhoneSignUp from './PhoneSignUp';
 
 
 export default function SignUp() {
+    const [mobileOpt, setMobile] = useState(false);
     
+    function updateMobile(event){
+        setMobile(prevs=> !prevs);
+        event.preventDefault();
+    }
     return (
-        <AuthProvider>
-            <Testing />
-        </AuthProvider>
-        
+            <div>
+                {mobileOpt ? 
+                <PhoneSignUp alternate={updateMobile}/> :
+                <Testing alternate={updateMobile}/>
+                }
+            </div>
     )
 }
