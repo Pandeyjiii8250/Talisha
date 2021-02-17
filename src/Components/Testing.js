@@ -14,8 +14,8 @@ export default function Testing() {
         console.log(emailref.current.value, passref.current.value)
         try{
             await signup(emailref.current.value, passref.current.value);
-        }catch{
-            console.log("Failed bro");
+        }catch(err){
+            console.log(err);
         }
 
             
@@ -23,7 +23,7 @@ export default function Testing() {
     return (
         <div className='signup'>
             <h1>Sign Up</h1>
-            <form onClick={handelSubmit}>
+            <form onClick={handelSubmit} method='POST'>
                 <div>
                 <label>Email Address</label>
                 <input type="text" ref={emailref}></input>

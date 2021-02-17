@@ -39,7 +39,6 @@ export function AuthProvider( {children}) {
 
     return (
         <AuthContex.Provider value={value}>
-            {/* {loading &&  */}
             {children}
         </AuthContex.Provider>
     )
