@@ -28,6 +28,20 @@ export function AuthProvider( {children}) {
         return auth.createUserWithEmailAndPassword(email, password)
     }
 
+    function handleEmailLink(email){
+        if (auth.isSignInWithEmailLink(window.location.href) && !!email){
+            auth.signInWithEmailLink(email, window.location.href);
+        }else{
+            auth.sendSignInLinkToEmail(email, {
+                url:'http://localhost:3000/SignUp',
+                handleCodeInApp: true,
+            })
+            .then(()=>{
+                window.localStorage.setItem("emailForSignIn", email);
+            });
+        }
+    }
+
     function googleSignIn(){
         auth.signInWithPopup(provider)
         .then((result) => {
@@ -52,7 +66,7 @@ export function AuthProvider( {children}) {
 
     useEffect(()=>{
         const unsubcriber = auth.onAuthStateChanged(user=>{
-            console.log(user);
+            // console.log(user);
             setCurrentUser(user);
         })
 
@@ -60,11 +74,13 @@ export function AuthProvider( {children}) {
     }, []);
 
     const value = {
+        auth,
         currentUser,
         signin,
         signout,
         createAcc,
-        googleSignIn
+        googleSignIn,
+        handleEmailLink
     }
 
     return (

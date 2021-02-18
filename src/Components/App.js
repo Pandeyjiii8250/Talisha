@@ -13,28 +13,16 @@ import FooterMy from './FooterMy';
 
 import SignUp from './SignUp'
 import CreateAcc from './CreateAcc';
+import PhoneSignUp from './PhoneSignUp';
 import './App.css';
 
 function App(){
-  // constructor (props){
-  //   super(props);
-  //   this.state = { apiResponse: ""};
-  // }
-
-  // callAPI(){
-  //   fetch("http://localhost:9000/testAPI").then(res=> res.text())
-  //       .then(res=>this.setState({apiResponse: res}))
-  // }
-
-  // componentWillMount(){
-  //   this.callAPI();
-  // }
-  // render(){
   return (
     <Router>
       <AuthProvider>
           <Route path='/createnew' exact component={CreateAcc} />
           <Route path="/Signup" exact component={SignUp} />
+          <Route path="/PhoneSignup" exact component={PhoneSignUp} />
           <Route path="/" exact>
             <NavbarMy />
             <Hero />
