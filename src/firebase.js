@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/auth";
+var firebaseui = require("firebaseui");
 
 const app = firebase.initializeApp({
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -10,23 +11,44 @@ const app = firebase.initializeApp({
     appId: process.env.REACT_APP_FIREBASE_APP_ID
 });
 
-var actionCodeSettings ={
-    url:"http://localhost:3000/createnew",
-    handleCodeInApp: true
+
+//this is to use firebaseui 
+    //the firebaseui config start hear
+const uiconfig ={
+    // callbacks: {
+    //     signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+    //         // User successfully signed in.
+    //         // Return type determines whether we continue the redirect automatically
+    //         // or whether we leave that to developer to handle.
+    //         return true;
+    //       },
+    // },
+    signInSuccessUrl: 'http://localhost:3000/',
+    signInOptions: [
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        {
+            provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+            signInMethod: firebase.auth.EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD,
+            forceSameDevice: false,
+            // emailLinkSignIn: function() {
+            //     return{
+            //         url: 'http://localhost:3000/Test',
+            //         handleCodeInApp: true
+            //     };
+            // }
+        },
+        {
+            provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+            defaultCountry: 'IN'
+        }
+    ],
+    tosUrl: 'http://localhost:3000/',
+    privacyPolicyUrl: 'http://localhost:3000/'
 }
-// app.auth().sendSignInLinkToEmail(email, actionCodeSettings)
-//   .then(() => {
-//     // The link was successfully sent. Inform the user.
-//     // Save the email locally so you don't need to ask the user for it again
-//     // if they open the link on the same device.
-//     window.localStorage.setItem('emailForSignIn', email);
-//     // ...
-//   })
-//   .catch((error) => {
-//     var errorCode = error.code;
-//     var errorMessage = error.message;
-//     // ...
-//   });
+
+var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+ui.start('#firebaseui-auth-container', uiconfig);
 
 export const auth = app.auth();
 export const provider = new firebase.auth.GoogleAuthProvider()

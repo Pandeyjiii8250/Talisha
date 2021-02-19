@@ -1,7 +1,7 @@
 import React, {useRef, useState} from 'react';
 import {Button} from 'antd';
 import {Link} from 'react-router-dom';
-import {useAuth} from './Contex/AuthContex';
+import {useAuth} from '../Contex/AuthContex';
 import './SignUp.css';
 import firebase from 'firebase';
 
@@ -16,44 +16,53 @@ export default function PhoneSignUp(props) {
     const otpref = useRef();
     const {auth} = useAuth();
 
+    //this function is to create the recaptcha verification invisible.
+    //it takes id as position where recaptcha to render
     async function recaptchaVerifierInvisible() {
         function onSignInSubmit() {
           console.log("hear");
         }
       
-        // [START auth_phone_recaptcha_verifier_invisible]
-        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', {
+        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(document.getElementById('sign-in-button'), {
           'size': 'invisible',
           'callback': (response) => {
-            // reCAPTCHA solved, allow signInWithPhoneNumber.
             onSignInSubmit();
           }
         });
-        // [END auth_phone_recaptcha_verifier_invisible]
+        // .catch(err=>{
+        //     console.log(err.message)
+        // });
       }
 
+      //this function is used to render recaptcha 
+      //it sets a widget id which can be used to reload recaptcha when signin fails
       function recaptchaRender() {
-        /** @type {firebase.auth.RecaptchaVerifier} */
+
         const recaptchaVerifier = window.recaptchaVerifier;
       
-        // [START auth_phone_recaptcha_render]
         recaptchaVerifier.render().then((widgetId) => {
           window.recaptchaWidgetId = widgetId;
         });
-        // [END auth_phone_recaptcha_render]
+        // .catch((err)=>console.log(err.message));
       }
 
+    // this function is called then user press the button to get otp.
+    // 1. updateOtpDefault state is change to render specific option option
+    // 2. all above function is called to establish recaptcha
+    // 3. firebase auth method is called where phoneno and recaptcha is passed.
+    //      > ON Success- It gives a confirmation result which is then stored and verified after wards.
+    //      > ON Error-   Error message is logged.
     async function phoneSignInStart(e){
         e.preventDefault();
         updateOtpValidateBox(true);
-        console.log(typeof(phoneref));
         recaptchaVerifierInvisible().then(()=>recaptchaRender());
         await firebase.auth().signInWithPhoneNumber(phoneref.current.value, window.recaptchaVerifier)
         .then((confirmationResult) => {
             console.log(confirmationResult)
             window.confirmationResult = confirmationResult;
         }).catch((error) => {
-          console.log(error);
+          console.log(error.code);
+          console.log(error.message);
         });
     }
 
@@ -72,11 +81,12 @@ export default function PhoneSignUp(props) {
             <h1>Sign Up</h1>
             <form method='POST'>
                 <div>
+                    {!otpValidateBox &&
                     <div>
                         <label>Phone No.</label>
                         <input type="Enter Phone no." ref={phoneref}></input>
-                        <div id='sign-in-button'></div>
                     </div>
+                    }
                     {otpValidateBox && 
                         <div>
                         <label>Enter OTP</label>
@@ -87,7 +97,7 @@ export default function PhoneSignUp(props) {
                 
                     <div className='support-button'>
                         {otpValidateBox ? <Button htmlType='button' onClick={(e)=>endphoneSignIn(e)}>Continue</Button> : 
-                        <Button type='primary'  onClick={(e)=>phoneSignInStart(e)}>Get OTP</Button>}
+                        <Button type='primary'  id= "sign-in-button"onClick={(e)=>phoneSignInStart(e)}>Get OTP</Button>}
                         <Button onClick={(e)=>props.alternate(e)} type='button'> Use Email</Button>
                     </div>
                 </div>

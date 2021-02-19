@@ -9,20 +9,16 @@ import PreMadeCart from './PreMadeCarts';
 import EachItem from './EachItem';
 import FooterCta from './FooterCta';
 import FooterMy from './FooterMy';
+import '../firebase';
 
-
-import SignUp from './SignUp'
-import CreateAcc from './CreateAcc';
-import PhoneSignUp from './PhoneSignUp';
+import FireSignup from './FireSignup';
 import './App.css';
 
 function App(){
   return (
     <Router>
       <AuthProvider>
-          <Route path='/createnew' exact component={CreateAcc} />
-          <Route path="/Signup" exact component={SignUp} />
-          <Route path="/PhoneSignup" exact component={PhoneSignUp} />
+          <Route path="/Signup" exact component={FireSignup} />
           <Route path="/" exact>
             <NavbarMy />
             <Hero />
