@@ -1,12 +1,24 @@
-import React, {useState} from "react";
+import React from "react";
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Nav from "react-bootstrap/Nav"
 import { Button } from 'antd';
 import {Link} from 'react-router-dom';
-import "./NavbarMy.css"
+import "./NavbarMy.css";
+import {useAuth} from './Contex/AuthContex';
+// import {AuthContex} from './Contex/AuthContex';
 function NavbarMy(){
-    const [isClick, updateClick] = useState(false);
+    const {currentUser, signout} = useAuth();
+
+    async function handelSignOut(e){
+        e.preventDefault();
+        try{
+            await signout();
+            // console.log(currentUser);
+        }catch(err){
+            console.log(err);
+        }
+    }
     return (
         <div className='trans'>
         <div className='container'>
@@ -26,16 +38,16 @@ function NavbarMy(){
                         <Nav.Link href="#pricing">About Us</Nav.Link>
                     </Nav>
                     <Nav>
-                        {isClick? 
+                        {currentUser !== null ? 
                         <NavDropdown title="My Account" id="collasible-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Dashboard</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.3">Your Cart</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">Log Out</NavDropdown.Item>
+                            <NavDropdown.Item onClick={handelSignOut}>Log Out</NavDropdown.Item>
                         </NavDropdown>:
-                        <Nav.Link href="Login" className="login-btn"onClick={(event)=>{updateClick(!isClick); event.preventDefault();}}>
-                            <Button ghost className='login-btn-nav'>
+                        <Nav.Link href="Login" className="login-btn" >
+                            <Button ghost className='login-btn-nav' id="login-btn-nav">
                                 <Link to='/signup'>Login</Link>
                             </Button>
                         </Nav.Link>
@@ -50,3 +62,4 @@ function NavbarMy(){
 }
 
 export default NavbarMy;
+

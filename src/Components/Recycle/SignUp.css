@@ -1,10 +1,11 @@
 .signup{
     max-width:400px;
     margin: auto;
-    padding: 90px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding: 6em;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     border: 2px solid #bbc8d4;
+    text-align: center;
 }
 
 .signup label{
@@ -21,9 +22,6 @@
     margin-top: 13px;
 }
 
-.signup Button:first-of-type{
-    margin-right:21px;
-}
 
 .signup Button{
     margin-top: 25px;
@@ -32,5 +30,21 @@
 
 .signup p{
     color:#bbc8d4;
+    margin-bottom: 0;
 }
 
+.signup div:first-of-type{
+    text-align: left;
+}
+
+.support-button{
+    display: flex;
+    justify-content: space-between;
+} 
+
+img{
+    width: 18px;
+    height:18px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
