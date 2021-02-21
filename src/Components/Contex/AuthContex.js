@@ -2,13 +2,11 @@ import React, {useState, useContext, useEffect} from 'react';
 import {auth} from '../../firebase';
 
 
-const AuthContex = React.createContext();
+export const AuthContex = React.createContext();
 
 export function useAuth(){
     return useContext(AuthContex);
 }
-
-
 
 
 
@@ -31,6 +29,7 @@ export function AuthProvider( {children}) {
     const value = {
         auth,
         currentUser,
+        setCurrentUser,
         signout
     }
 

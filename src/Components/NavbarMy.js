@@ -6,6 +6,7 @@ import { Button } from 'antd';
 import {Link} from 'react-router-dom';
 import "./NavbarMy.css";
 import {useAuth} from './Contex/AuthContex';
+// import {AuthContex} from './Contex/AuthContex';
 function NavbarMy(){
     const {currentUser, signout} = useAuth();
 
@@ -13,7 +14,7 @@ function NavbarMy(){
         e.preventDefault();
         try{
             await signout();
-            console.log(currentUser);
+            // console.log(currentUser);
         }catch(err){
             console.log(err);
         }
@@ -61,3 +62,4 @@ function NavbarMy(){
 }
 
 export default NavbarMy;
+
