@@ -1,0 +1,25 @@
+/* sidebar cart */
+.border-container:after{
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width:50%;
+    height: 0;
+    border-bottom: 2px solid #dedede;
+}
+
+.items-info{
+    padding: 6px;
+    margin-bottom: 5px;
+}
+.items-info p{
+    margin-bottom: 0;
+}
+
+.cart-item-name{
+    font-weight: 500;
+}
+
+.item-price{
+    line-height:40px;
+}

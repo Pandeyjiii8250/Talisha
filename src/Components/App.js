@@ -9,7 +9,9 @@ import PreMadeCart from './PreMadeCarts';
 import EachItem from './EachItem';
 import FooterCta from './FooterCta';
 import FooterMy from './FooterMy';
+import Shopping from './Shopping';
 import '../firebase';
+
 
 import FireSignup from './FireSignup';
 import './App.css';
@@ -19,14 +21,15 @@ function App(){
     <Router>
       <AuthProvider>
           <Route path="/Signup" exact component={FireSignup} />
+          <NavbarMy />
+          <Route path="/shopping" exact component={Shopping} />
           <Route path="/" exact>
-            <NavbarMy />
             <Hero />
             <PreMadeCart />
             <EachItem />
             <FooterCta />
-            <FooterMy />
           </Route>
+          <FooterMy />
       </AuthProvider>
     </Router>
   );

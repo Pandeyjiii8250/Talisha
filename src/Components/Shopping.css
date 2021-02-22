@@ -1,0 +1,26 @@
+.searchBox{
+    margin-top:12vh;
+    margin-bottom:10vh;
+    padding: 0 12px;
+}
+
+.show-cart{
+    width: 50%;
+}
+
+.cart-heading{
+    margin-top: 12vh;
+    margin-bottom: 10vh;
+    text-align: center;
+}
+.cart-heading h3{
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.flex-spacedbtw{
+    display: flex;
+    justify-content: space-between;
+
+}
+
