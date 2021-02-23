@@ -1,19 +1,37 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import {Card, Button} from 'antd';
+import {useStateValue} from './StateProvider';
 
 function Cardant(props){
+    const [{basket}, dispatch] = useStateValue()
+    const addToBasket = (id, title)=>{
+        dispatch({
+            type:"ADD_ITEM",
+            payload:{
+                id:id,
+                title:title,
+                price:10,
+                count:1
+            }
+        })
+    }
+    //design for card
     const {Meta} = Card;
     const gridStyle = {
         width: props.width,
         textAlign: 'center',
       };
+    
     return(
         <Card title={props.title}>
+        
         <div style={{display:"flex", justifyContent:"space-around"}}>
-        {props.info.map(item=>{
+        {props.info.map((item, index)=>{
             return(
                 <Card.Grid
+                    key={index}
+                    id={index}
                     hoverable={true}
                     style={gridStyle}>
                     <Card
@@ -25,7 +43,12 @@ function Cardant(props){
                         />
                     }
                     actions={[
-                        <Button shape="round" type="primary" >+<i class="fas fa fa-shopping-cart"></i></Button>
+                        <Button 
+                        shape="round" 
+                        type="primary" 
+                        onClick={()=>addToBasket(index, item.title)}>
+                        +<i class="fas fa fa-shopping-cart">
+                        </i></Button>
       
                     ]}
                 >

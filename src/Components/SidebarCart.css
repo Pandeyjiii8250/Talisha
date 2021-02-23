@@ -15,11 +15,17 @@
 .items-info p{
     margin-bottom: 0;
 }
+.items-info p:first-of-type{
+    font-size: 17px;
+}
 
 .cart-item-name{
     font-weight: 500;
 }
 
-.item-price{
+/* .item-price{
     line-height:40px;
+} */
+.border-container{
+    margin-bottom: 12px;
 }

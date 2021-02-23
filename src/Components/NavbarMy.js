@@ -6,8 +6,10 @@ import { Button } from 'antd';
 import {Link} from 'react-router-dom';
 import "./NavbarMy.css";
 import {useAuth} from './Contex/AuthContex';
+import {useStateValue} from './StateProvider';
 // import {AuthContex} from './Contex/AuthContex';
 function NavbarMy(){
+    const[{basket}, dispatch] = useStateValue();
     const {currentUser, signout} = useAuth();
 
     async function handelSignOut(e){
@@ -52,7 +54,7 @@ function NavbarMy(){
                             </Button>
                         </Nav.Link>
                         }   
-                        <Nav.Link className="cart-link" href="#Cart"><i class="fas fa fa-shopping-cart fa-2x cart"></i></Nav.Link>
+                        <Nav.Link className="cart-link" href="#Cart"><i class="fas fa fa-shopping-cart fa-2x cart"></i><span className="number-items">{basket?.length}</span></Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
