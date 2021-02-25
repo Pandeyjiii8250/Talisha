@@ -2,21 +2,26 @@ import React, {useRef, useEffect, useState} from 'react';
 import 'antd/dist/antd.css';
 import {Card, Button} from 'antd';
 import {useStateValue} from './StateProvider';
-// import {db} from '../firebase';
-function Cardant(props){
+import {db} from '../firebase';
+// import {useDataValue} from './Contex/DataProvider';
+
+export default function Cardant2(props) {
     const [{basket}, dispatch] = useStateValue();
-    // const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
 
-    // var itemDetail = useRef([]);
+    var itemDetail = useRef([]);
+    // const{itemDetail,loading} = useDataValue()
 
-    // useEffect(()=>{
-    //     console.log("Hellow");
-    //     itemDetail.current = db.collection("Items").get().then(querySnapshot=>{
-    //         return querySnapshot.get();
-    //     });
-    //     console.log(itemDetail.current)
-    //     setLoading(true);
-    // });
+    useEffect(()=>{
+        console.log("Hellow");
+        db.collection("Items").get().then(querySnapshot=>{
+            // console.log(querySnapshot.docs)
+            itemDetail.current = querySnapshot.docs;
+            setLoading(true);
+            console.log("hellow2");
+        })
+            
+    },[]);
 
     const addToBasket = (id, title)=>{
         dispatch({
@@ -37,23 +42,22 @@ function Cardant(props){
       };
     
     return(
-        <Card title={props.title}>
+        <Card title="Test">
+        
         <div style={{display:"flex", justifyContent:"space-around"}}>
-        {props.info.map((item, index)=>{
+        {/* {props.info.map((item, index)=>{ */}
+        {loading && itemDetail.current.map((item)=>{
             return(
                 <Card.Grid
-                    key={index}
-                    id={index}
-                    // key={index}
-                    // id={index}
+                    key={item.id}
+                    id={item.id}
                     hoverable={true}
                     style={gridStyle}>
                     <Card
                     cover={
                         <img
                         alt="example"
-                        // src={item.data().img}
-                        src={item.img}
+                        src={item.data().img}
                         style={props.val === "0" ? {height:"auto"} : {height:150}}
                         />
                     }
@@ -61,7 +65,7 @@ function Cardant(props){
                         <Button 
                         shape="round" 
                         type="primary" 
-                        onClick={()=>addToBasket(index, item.title)}>
+                        onClick={()=>addToBasket(item.id, item.data().title)}>
                         +<i class="fas fa fa-shopping-cart">
                         </i></Button>
       
@@ -69,10 +73,8 @@ function Cardant(props){
                 >
                 <Meta
                 // avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                    // title={item.data().title}
-                    title={item.title}
-                    // description={item.data().description}
-                    description={item.description}
+                    title={item.data().title}
+                    description={item.data().description}
                 />
                 </Card>
                 </Card.Grid>
@@ -83,4 +85,4 @@ function Cardant(props){
     );
 }
 
-export default Cardant;
+

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Nav from "react-bootstrap/Nav"
@@ -7,10 +7,19 @@ import {Link} from 'react-router-dom';
 import "./NavbarMy.css";
 import {useAuth} from './Contex/AuthContex';
 import {useStateValue} from './StateProvider';
+// import {db} from "../firebase";
 // import {AuthContex} from './Contex/AuthContex';
 function NavbarMy(){
     const[{basket}, dispatch] = useStateValue();
     const {currentUser, signout} = useAuth();
+
+    // useEffect(() => {
+    //     db.collection("Items").get().then((querySnapshot) => {
+    //         querySnapshot.forEach((doc) => {
+    //             console.log(`${doc.id} => ${doc.get('title')}`);
+    //         });
+    //     });
+    // }, [])
 
     async function handelSignOut(e){
         e.preventDefault();

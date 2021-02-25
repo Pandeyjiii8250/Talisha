@@ -2,6 +2,10 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 var firebaseui = require("firebaseui");
+// require ("firebase/firebase-firestore")
+// const firebase = require("firebase");
+require("firebase/firestore")
+require("firebase/storage");
 
 const app = firebase.initializeApp({
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -51,7 +55,10 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 ui.start('#firebaseui-auth-container', uiconfig);
 
+export var db = firebase.firestore();
 export const auth = app.auth();
+// export var storage = firebase.storage();
+// export var storageRef = storage.ref();
 export const provider = new firebase.auth.GoogleAuthProvider()
 export default app;
 
