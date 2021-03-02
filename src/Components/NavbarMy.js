@@ -7,19 +7,12 @@ import {Link} from 'react-router-dom';
 import "./NavbarMy.css";
 import {useAuth} from './Contex/AuthContex';
 import {useStateValue} from './StateProvider';
-// import {db} from "../firebase";
-// import {AuthContex} from './Contex/AuthContex';
+
 function NavbarMy(){
     const[{basket}, dispatch] = useStateValue();
     const {currentUser, signout} = useAuth();
 
-    // useEffect(() => {
-    //     db.collection("Items").get().then((querySnapshot) => {
-    //         querySnapshot.forEach((doc) => {
-    //             console.log(`${doc.id} => ${doc.get('title')}`);
-    //         });
-    //     });
-    // }, [])
+    
 
     async function handelSignOut(e){
         e.preventDefault();
@@ -38,7 +31,7 @@ function NavbarMy(){
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
-                        <Nav.Link href="#features"><i class="fas fa fa-home icon"></i>Home</Nav.Link>
+                        <Link to="/"><Nav.Link href="#features"><i class="fas fa fa-home icon"></i>Home</Nav.Link></Link>
                         <NavDropdown title="Categories" id="collasible-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Satyanarayan Kit</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Ganpati Kit</NavDropdown.Item>

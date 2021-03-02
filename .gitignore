@@ -2,3 +2,8 @@ node_modules
 .env
 .env.local
 .env
+dist
+firebase.json
+.firebase
+build
+.firebaserc

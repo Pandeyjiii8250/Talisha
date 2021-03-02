@@ -1,22 +1,10 @@
-import React, {useRef, useEffect, useState} from 'react';
+import React from 'react';
 import 'antd/dist/antd.css';
 import {Card, Button} from 'antd';
 import {useStateValue} from './StateProvider';
-// import {db} from '../firebase';
+
 function Cardant(props){
     const [{basket}, dispatch] = useStateValue();
-    // const [loading, setLoading] = useState(false);
-
-    // var itemDetail = useRef([]);
-
-    // useEffect(()=>{
-    //     console.log("Hellow");
-    //     itemDetail.current = db.collection("Items").get().then(querySnapshot=>{
-    //         return querySnapshot.get();
-    //     });
-    //     console.log(itemDetail.current)
-    //     setLoading(true);
-    // });
 
     const addToBasket = (id, title)=>{
         dispatch({

@@ -1,12 +1,12 @@
-
 import firebase from "firebase/app";
 import "firebase/auth";
 var firebaseui = require("firebaseui");
-// require ("firebase/firebase-firestore")
-// const firebase = require("firebase");
+
+//To use database and storage
 require("firebase/firestore")
 require("firebase/storage");
 
+//initialize the app with firebase credentials
 const app = firebase.initializeApp({
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -16,7 +16,7 @@ const app = firebase.initializeApp({
     appId: process.env.REACT_APP_FIREBASE_APP_ID
 });
 
-
+//...............this is still needed to understood
 //this is to use firebaseui 
     //the firebaseui config start hear
 const uiconfig ={
@@ -28,7 +28,8 @@ const uiconfig ={
     //         return true;
     //       },
     // },
-    signInSuccessUrl: 'http://localhost:3000/',
+    // signInSuccessUrl: 'http://localhost:3000/',
+    signInSuccessUrl: 'https://test-auth-7144a.web.app/',
     signInOptions: [
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         {
@@ -54,6 +55,7 @@ const uiconfig ={
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 ui.start('#firebaseui-auth-container', uiconfig);
+
 
 export var db = firebase.firestore();
 export const auth = app.auth();

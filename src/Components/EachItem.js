@@ -1,6 +1,6 @@
 import React from 'react'
 import Cardant from './Cardant'
-import {catOneCards, catTwoCards} from './CardDetail';
+// import {catOneCards, catTwoCards} from './CardDetail';
 import {useDataValue} from './Contex/DataProvider';
 export default function EachItem() {
     const {itemDetail, loading} = useDataValue();
@@ -10,7 +10,6 @@ export default function EachItem() {
             {loading ?
             <>
             <div>
-                {console.log(itemDetail.current.slice(0,4))}
                 <Cardant info={itemDetail.current.slice(0,4)} width="25%" val="0" title="Categories" />
                 {/* <Cardant info={catOneCards} width="25%" val="0" title="Categories" /> */}
             </div>

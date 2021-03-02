@@ -1,11 +1,13 @@
+//...........Just another test Cards
+
 import React from "react";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-// import Container from "react-bootstrap/Container"
+
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col"
 // import card1 from "../img/satyanarayna.png";
-// import cartCards from "./CardDetail";
+
 
 function Cards(props){
     return(
