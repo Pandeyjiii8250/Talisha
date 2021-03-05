@@ -1,6 +1,6 @@
 import React from 'react';
 import {Input} from 'antd';
-import EachItem from './EachItem';
+import ShoCart from './ShoCart'
 import './Shopping.css';
 import SidebarCart from "./SidebarCart";
 import PriceShow from "./PriceShow";
@@ -19,7 +19,7 @@ export default function Shopping() {
                         size="large"
                     />
                 </div>
-                <EachItem />
+                <ShoCart />
             </div>
             <div className= "show-cart">
                 <div>

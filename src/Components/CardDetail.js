@@ -6,15 +6,15 @@ import Satya from "../img/satyanarayna.png";
 import Rudra from "../img/Mask Group-1.jpg";
 import Devi from "../img/Mask Group.jpg";
 
-// import Ganga from "../img/gangajal.jpg";
-// import kapoor from "../img/kapoor.jpg";
-// import Supari from "../img/Supari.jpg";
-// import Honey from "../img/hney.jpg";
+import Ganga from "../img/gangajal.jpg";
+import kapoor from "../img/kapoor.jpg";
+import Supari from "../img/Supari.jpg";
+import Honey from "../img/hney.jpg";
 
-// import Nariyal from "../img/Nariyal.jpg";
-// import Kumkum from "../img/Kumkum.jpg";
-// import Kapus from "../img/Kapus.jpg";
-// import Janeu from "../img/Janeu.jpg";
+import Nariyal from "../img/Nariyal.jpg";
+import Kumkum from "../img/Kumkum.jpg";
+import Kapus from "../img/Kapus.jpg";
+import Janeu from "../img/Janeu.jpg";
 
 const cartCads = [
     {
@@ -41,75 +41,75 @@ const cartCads = [
 
 ];
 
-// const catOneCards = [
-//     {
-//         id:1,
-//         title:"Gangajal",
-//         description:"Info about product",
-//         Price:"20 rs/-",
-//         img:Ganga
+const catOneCards = [
+    {
+        id:1,
+        title:"Gangajal",
+        description:"Info about product",
+        Price:"20 rs/-",
+        img:Ganga
         
-//     },
-//     {
-//         id:2,
-//         title:"kapoor",
-//         description:"Info about product",
-//         Price:"20 rs/-",
-//         img:kapoor
+    },
+    {
+        id:2,
+        title:"kapoor",
+        description:"Info about product",
+        Price:"20 rs/-",
+        img:kapoor
         
-//     },
-//     {
-//         id:3,
-//         title:"Supari",
-//         description:"Info about product",
-//         Price:"20 rs/-",
-//         img:Supari
+    },
+    {
+        id:3,
+        title:"Supari",
+        description:"Info about product",
+        Price:"20 rs/-",
+        img:Supari
         
-//     },
-//     {
-//         id:4,
-//         title:"Honey",
-//         description:"Info about product",
-//         Price:"20 rs/-",
-//         img:Honey
+    },
+    {
+        id:4,
+        title:"Honey",
+        description:"Info about product",
+        Price:"20 rs/-",
+        img:Honey
         
-//     }      
-// ];
+    }      
+];
 
-// const catTwoCards = [
-//     {
-//         id:1,
-//         title:"Nariyal",
-//         description:"Info about product",
-//         Price:"20 rs/-",
-//         img:Nariyal
+const catTwoCards = [
+    {
+        id:1,
+        title:"Nariyal",
+        description:"Info about product",
+        Price:"20 rs/-",
+        img:Nariyal
         
-//     },
-//     {
-//         id:2,
-//         title:"Kumkum",
-//         description:"Info about product",
-//         Price:"20 rs/-",
-//         img:Kumkum
+    },
+    {
+        id:2,
+        title:"Kumkum",
+        description:"Info about product",
+        Price:"20 rs/-",
+        img:Kumkum
         
-//     },
-//     {
-//         id:3,
-//         title:"Janeu",
-//         description:"Info about product",
-//         Price:"20 rs/-",
-//         img:Janeu
+    },
+    {
+        id:3,
+        title:"Janeu",
+        description:"Info about product",
+        Price:"20 rs/-",
+        img:Janeu
         
-//     },
-//     {
-//         id:4,
-//         title:"Kapus",
-//         description:"Info about product",
-//         Price:"20 rs/-",
-//         img:Kapus
+    },
+    {
+        id:4,
+        title:"Kapus",
+        description:"Info about product",
+        Price:"20 rs/-",
+        img:Kapus
         
-//     }
-// ];
+    }
+];
 
 // // const catThreeCards = [
 // //     {id=1,
@@ -130,4 +130,4 @@ const cartCads = [
 // // ];
 
 export default cartCads;
-// export {catOneCards, catTwoCards};
+export {catOneCards, catTwoCards};

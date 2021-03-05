@@ -30,3 +30,11 @@ ul{
 .footer-item{
   margin-right: 20px;
 } */
+
+/* ............making the site responsive................. */
+@media(min-width:576px)and(max-width:768px){
+  .hero-cta{
+    padding-top: 2em;
+    padding-bottom: 3em;
+  }
+}

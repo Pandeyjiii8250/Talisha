@@ -49,3 +49,28 @@ ul{
 .logo-contact i:first-of-type{
     margin-right:20px;
 }
+
+@media(max-width:767px){
+    .logo-contact{
+        display: none;
+    }
+}
+
+@media(min-width:768px){
+    .logo-contact h1{
+        font-size: 2em;
+    }
+    .footer-item h5{
+        font-size: 1em;
+    }
+}
+
+@media(max-width:576px){
+
+    .footer-item h5{
+        font-size:1rem ;
+    }
+    li{
+        font-size: 0.5rem;
+    }
+}

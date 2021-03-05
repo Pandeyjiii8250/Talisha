@@ -27,7 +27,7 @@ function NavbarMy(){
         <div className='trans'>
         <div className='container'>
             <Navbar collapseOnSelect expand="lg">
-                <Navbar.Brand href="#home" className='brand-my'>Talisha.</Navbar.Brand>
+                <Navbar.Brand href="#home" className='brand-my'>Vaaroo.</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">

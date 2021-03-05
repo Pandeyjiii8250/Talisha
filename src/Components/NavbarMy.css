@@ -76,3 +76,9 @@
     background-color: red;
     border-radius: 100%;
 }
+
+/* to set the icon of navbar */
+
+.navbar-light .navbar-toggler-icon {
+    background-image: url(../img/menu.svg);
+}

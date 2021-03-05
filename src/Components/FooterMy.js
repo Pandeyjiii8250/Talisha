@@ -6,7 +6,7 @@ export default function FooterMy() {
         <div className='footer-bg'>
         <div className="container footer footer-pad">
       <div className="logo-contact">
-        <h1>Talisha.</h1>
+        <h1>Vaaroo.</h1>
         <i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
         <i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
       </div>
