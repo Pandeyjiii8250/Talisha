@@ -1,5 +1,9 @@
 import React from 'react';
-import Cta from './Cta';
+
+//import of a component
+import Cta from '../Cta';
+
+//personal style sheet
 import './Hero.css';
 
 export default function Hero() {

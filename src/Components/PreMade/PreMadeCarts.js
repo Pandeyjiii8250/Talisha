@@ -1,9 +1,16 @@
 import React from 'react';
-import { useMediaQuery } from 'react-responsive'
+
+//this makes use of media query possible
+import { useMediaQuery } from 'react-responsive';
+
+//Componets used hear
 import Cardant from './Cardant';
 import CarouselMy from './CarouselMy';
-import cartCards from "./CardDetail";
-// import MyCard from './MyCard';
+
+//contains sample information
+import cartCards from "../CardDetail";
+
+//personal style sheet
 import './PreMadeCart.css';
 
 

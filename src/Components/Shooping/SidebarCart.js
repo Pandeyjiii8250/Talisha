@@ -1,9 +1,15 @@
 import React from 'react';
+
+//import from material ui frame work
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+
+//private style sheet
 import "./SidebarCart.css";
-import {useStateValue} from './StateProvider';
+
+//import to use contextprovider
+import {useStateValue} from '../StateProvider';
 
 export default function SidebarCart() {
     const[{basket},dispatch] = useStateValue();

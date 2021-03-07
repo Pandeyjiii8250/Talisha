@@ -1,8 +1,11 @@
-import React from 'react'
-// import Cardant from './Cardant'
+import React from 'react';
+
+// component use hear
 import MyCard from './MyCard';
-// import {catOneCards, catTwoCards} from './CardDetail';
-import {useDataValue} from './Contex/DataProvider';
+
+//use of context provider
+import {useDataValue} from '../Contex/DataProvider';
+
 export default function EachItem() {
     const {itemDetail, loading} = useDataValue();
 

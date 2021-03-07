@@ -1,8 +1,14 @@
 import React from "react";
 import {Link} from "react-router-dom";
+
+//import from antd framework
 import {Button} from "antd";
+
+//style sheet for this component
 import "./Cta.css";
-import {useAuth} from "./Contex/AuthContex";
+
+//import from contex provider
+import {useAuth} from "../Contex/AuthContex";
 function Cta(props){
     const {currentUser} =  useAuth();
     return(

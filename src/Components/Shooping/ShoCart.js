@@ -1,14 +1,24 @@
 import React from 'react';
 
-import {DataProvider} from './Contex/DataProvider';
+//antd framework
 import {Button} from "antd";
-import {catOneCards, catTwoCards} from "./CardDetail";
-import {useDataValue} from './Contex/DataProvider';
-import {useStateValue} from './StateProvider';
+
+//sample information
+import {catOneCards, catTwoCards} from "../CardDetail";
+
+//contex provider
+import {DataProvider} from '../Contex/DataProvider';
+import {useDataValue} from '../Contex/DataProvider';
+import {useStateValue} from '../StateProvider';
+
+//bootstrap framework
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col'
+import Col from 'react-bootstrap/Col';
+
+//prsonal style sheet
 import "./ShoCart.css";
+
 export default function ShoCart() {
     const {itemDetail, loading} = useDataValue();
     const [{basket}, dispatch] = useStateValue()

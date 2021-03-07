@@ -1,12 +1,18 @@
 import React from 'react';
+
+//frameword antd
 import {Input} from 'antd';
-import ShoCart from './ShoCart'
+
+//private style sheet
 import './Shopping.css';
+
+//import of component
+import ShoCart from './ShoCart'
 import SidebarCart from "./SidebarCart";
 import PriceShow from "./PriceShow";
 
 
-const {Search} = Input;
+const {Search} = Input;  //requirements to use input
 export default function Shopping() {
     return (
         <div className="container flex-spacedbtw">

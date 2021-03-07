@@ -1,10 +1,17 @@
 import React from 'react';
-import {useStateValue} from './StateProvider';
-// import Container from 'react-bootstrap/Container';
+import {Link} from 'react-router-dom';
+
+//to use contex provider
+import {useStateValue} from '../StateProvider';
+
+//import from bootstrap framework
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import {Link} from 'react-router-dom';
+
+//antd framework
 import {Button} from 'antd';
+
+//personal css
 import './MyCard.css';
 
 export default function MyCard(props) {

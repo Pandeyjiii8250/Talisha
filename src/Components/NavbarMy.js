@@ -1,10 +1,12 @@
-import React, {useEffect} from "react";
+import React from "react";
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Nav from "react-bootstrap/Nav"
 import { Button } from 'antd';
 import {Link} from 'react-router-dom';
 import "./NavbarMy.css";
+
+//the are two imports from contexproviders
 import {useAuth} from './Contex/AuthContex';
 import {useStateValue} from './StateProvider';
 

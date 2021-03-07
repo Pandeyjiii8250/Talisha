@@ -1,7 +1,7 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import {Card, Button} from 'antd';
-import {useStateValue} from './StateProvider';
+import {useStateValue} from '../StateProvider';
 
 function Cardant(props){
     const [{basket}, dispatch] = useStateValue();

@@ -50,28 +50,6 @@
     font-size: 16px;
     font-weight: 500;
 }
-/* @media(max-width:575px){
-    .my-card{
-        background-color: brown;
-    }
-} */
-
-/* 554-720 */
-/* 720 */
-/* @media (min-width:576px){
-    .my-card{
-        background-color:yellow;
-    }
-} */
-
-/* 960 */
-/*min-width*/ /*768px and greater*/
-/* @media (min-width:768px){
-    .my-col{
-        padding-left: 0.25rem;
-        padding-right: 0.25rem;
-    }
-} */
 @media (max-width:768px){
     .my-col{
         padding-left: 0.25rem;
@@ -80,9 +58,3 @@
     }
 }
 
-/* 1240 */
-/* @media(min-width:992px){
-    .my-card{
-        background-color: purple;
-    }
-} */

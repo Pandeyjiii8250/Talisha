@@ -1,18 +1,18 @@
 import React, {useEffect} from 'react';
-import Container from 'react-bootstrap/Container';
+
+//antd framework
 import {Button}  from 'antd';
-import {catOneCards, catTwoCards} from "./CardDetail"; 
+// import {catOneCards, catTwoCards} from "./CardDetail";
+
+//personal style sheet
 import './CarouselMy.css';
 
 export default function CarouselMy(props) {
     function nextItem(){
         const activateNewCard = document.getElementsByClassName("car-card");
         for (var i=0 ; i<activateNewCard.length; i++){
-            // console.log(activateNewCard.length);
-            // console.log(activateNewCard[i].classList);
         if(activateNewCard[i].classList.contains("card-active")){
             if (i+2 < activateNewCard.length){
-                // console.log(i+2)
                 activateNewCard[i].classList.remove("card-active");
                 activateNewCard[i+2].classList.add("card-active");
             }

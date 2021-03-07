@@ -1,5 +1,9 @@
 import React from 'react'
-import Cta from './Cta'
+
+//import of component used in
+import Cta from '../Cta'
+
+//personal style sheet
 import './FooterCta.css'
 
 export default function FooterCta() {

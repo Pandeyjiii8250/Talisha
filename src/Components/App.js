@@ -9,12 +9,12 @@ import {DataProvider} from './Contex/DataProvider';
 
 //THese are import to components
 import NavbarMy from "./NavbarMy";
-import Hero from "./Hero";
-import PreMadeCart from './PreMadeCarts';
-import EachItem from './EachItem';
-import FooterCta from './FooterCta';
+import Hero from "./Cta/Hero/Hero";
+import PreMadeCart from './PreMade/PreMadeCarts';
+import EachItem from './EachItem/EachItem';
+import FooterCta from './Cta/FooterCta/FooterCta';
 import FooterMy from './FooterMy';
-import Shopping from './Shopping';
+import Shopping from './Shooping/Shopping';
 import Test from "./Test";
 
 import reducer, { initialState } from "./reducer";

@@ -1,8 +1,13 @@
 import React from 'react';
+
+//antd frame work
 import {Button} from 'antd';
+//private style sheet
 import "./PriceShow.css";
-import {useStateValue} from './StateProvider';
-import {getBasketTotal} from './reducer';
+
+//import from contextprovider
+import {useStateValue} from '../StateProvider';
+import {getBasketTotal} from '../reducer';
 
 export default function PriceShow() {
     const [{basket}, dispatch] = useStateValue();

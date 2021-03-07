@@ -1,19 +1,11 @@
 /* this is css for hero section  */
 .hero{
-    background-image: url("../img/hero_img1-min.jpg");
-    /* background-position: 50% 50%; */
-    /* background-size: cover; */
-    /* min-height: 800px; */
+    background-image: url("../../../img/hero_img1-min.jpg");
+    
   }
   
   
-  
-  /* .hero-cta{
-    padding-top: 92px;
-    padding-bottom: 110px;
-    padding-left: 16px;
-    padding-right: 16px;
-  } */
+ 
 
   @media(max-width:768px){
     .hero-cta{
