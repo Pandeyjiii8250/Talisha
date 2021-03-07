@@ -20,9 +20,10 @@ function Cta(props){
             </Button>
             </Link>
             }
-            <Button ghost={!currentUser} type={currentUser && "primary"}>
+            <Link to="/Shopping"><Button ghost={!currentUser} type={currentUser && "primary"}>
                 Start Cart
             </Button>
+            </Link>
         </div>
     );
 }

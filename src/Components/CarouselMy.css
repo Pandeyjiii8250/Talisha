@@ -1,0 +1,36 @@
+/* my carousel  */
+
+.car-card{
+    display:none;
+}
+
+.carousel-container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    position: relative;
+    border: 1px solid #f0f0f0;
+    padding: 1.25rem;
+}
+
+.card-active{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.changeButton{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.changeButton div{
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.changeButton div:hover{
+    color: rgb(101, 121, 165);
+}
