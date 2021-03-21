@@ -15,6 +15,7 @@ import EachItem from './EachItem/EachItem';
 import FooterCta from './Cta/FooterCta/FooterCta';
 import FooterMy from './FooterMy';
 import Shopping from './Shooping/Shopping';
+import Checkout from './Checkout/Checkout';
 import Test from "./Test";
 
 import reducer, { initialState } from "./reducer";
@@ -33,6 +34,7 @@ function App(){
               <Route path="/Signup" exact component={FireSignup} />
               <Route path="/shopping" exact component={Shopping} />
               <Route path="/test" exact component={Test} />
+              <Route path='/checkout' exact component={Checkout} />
               <Route path="/" exact>
                 <Hero />
                 <PreMadeCart />

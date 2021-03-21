@@ -4,6 +4,9 @@
     margin-top:12vh;
     margin-bottom:10vh;
     padding: 0 12px;
+    /* position:fixed; */
+    /* z-index: 1; */
+    top: 0;
 }
 
 .show-cart{
@@ -32,3 +35,33 @@
     }
 }
 
+.place-order{
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    display: flex;
+    padding: 15px;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    border-top: 1px solid #8080804a;
+}
+
+.place-order p{
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 25px;
+    margin-bottom: 0;
+    color: #d6d3d3;;
+}
+
+.place-order span{
+    color: black;
+}
+
+.sticky{
+    position: fixed;
+    top:0;
+    z-index: 1;
+    margin: 0;
+}

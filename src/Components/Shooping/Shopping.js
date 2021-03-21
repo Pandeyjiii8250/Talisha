@@ -1,7 +1,8 @@
-import React from 'react';
-
+import React, {useRef, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 //frameword antd
 import {Input} from 'antd';
+import Button from 'react-bootstrap/Button'
 
 //private style sheet
 import './Shopping.css';
@@ -10,14 +11,39 @@ import './Shopping.css';
 import ShoCart from './ShoCart'
 import SidebarCart from "./SidebarCart";
 import PriceShow from "./PriceShow";
-
+import {useStateValue} from '../StateProvider'
 
 const {Search} = Input;  //requirements to use input
 export default function Shopping() {
+    const[{basket}, dispatch] = useStateValue();
+    const search = useRef()
+    const offsrtmy = useRef()
+
+    useEffect(()=>{
+        if(search.current != null){
+            offsrtmy.current = search.current.offsetTop;
+            window.onscroll = function() {scrollFun()}
+        }
+    },[])
+    
+
+    const scrollFun = ()=>{
+        if(window.pageYOffset >= offsrtmy.current){
+            if(search.current != null){
+                search.current.classList.add("sticky")
+            }
+        }
+        else{
+            if (search.current != null){
+                search.current.classList.remove("sticky")
+            }
+        }
+    }
     return (
+        <>
         <div className="container flex-spacedbtw">
             <div>
-                <div className='searchBox'> 
+                <div className='searchBox' ref = {search}> 
                     <Search
                         placeholder="input search text"
                         allowClear
@@ -37,5 +63,10 @@ export default function Shopping() {
                 </div>
             </div>
         </div>
+        <div className="place-order">
+            <p><span>{basket?.length}</span> item in Cart</p>
+            <Link to="/checkout"><Button> Place Order</Button></Link>
+        </div>
+        </>
     )
 }
