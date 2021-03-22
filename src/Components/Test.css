@@ -1,14 +1,3 @@
-/* .carousel-items-contain{
-    padding: 1.25rem;
-    border: 1px solid #f0f0f0; */
-    /* waste  */
-/* } */
-
-.myCarousel{
-    width:25%;
-    /* display:block; */
-    margin: 0;
-}
 
 /* @media(max-width:575px){ 
 } */
@@ -29,16 +18,13 @@
         padding-right: 0.25rem;
     }
 } */
+
+.test3{
+    display: none;
+}
 @media (max-width:768px){
-    .my-col{
-        padding-left: 0.25rem;
-        padding-right: 0.25rem;
-        margin-top: 0.55rem;
-    }
-    .myCarousel{
-        width:50%;
-        /* background-color: red; */
-    }
+    
+    
 }
 
 /* 1240 */
@@ -48,36 +34,6 @@
     }
 } */
 
-/* .car-card{
-    width:fit-content;
-    display:none;
-}
-
-.carousel-container{
-    display: flex;
-    align-items: stretch;
-    position: relative;
-    
-}
-
-.card-active{
-    display: block;
-} */
 
 
 
-.changeButton{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
-
-.changeButton div{
-    display: inline-block;
-    cursor: pointer;
-    margin-left: 20px;
-}
-
-.changeButton div:hover{
-    color: rgb(101, 121, 165);
-}

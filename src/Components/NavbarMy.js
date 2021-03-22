@@ -41,7 +41,7 @@ function NavbarMy(){
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="#action/3.4">Rudra Abhishek Kit</NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link href="#pricing">About Us</Nav.Link>
+                        <Link to="/aboutUs"><Nav.Link href="#pricing">About Us</Nav.Link></Link>
                     </Nav>
                     <Nav>
                         {currentUser !== null ? 

@@ -1,0 +1,32 @@
+.for-other-visitors{
+    display: none;
+}
+
+@media (max-width:768px){
+    .for-other-visitors{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        /* display:flex; */
+    }
+
+    .future{
+    
+        width: 100%;
+        background: linear-gradient(
+                to right bottom,
+                rgba(255, 103, 0, 0.66),
+                rgba(255, 0, 0, 0.77)
+            );
+            border-radius: 20px;
+            box-shadow: -3px -3px 7px rgba(12, 0, 0, 0.18) inset;
+            padding: 20px;
+    }
+
+    .img-glass{
+        width:50%;
+        height:20%;
+    }
+}

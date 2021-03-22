@@ -16,6 +16,10 @@ import FooterCta from './Cta/FooterCta/FooterCta';
 import FooterMy from './FooterMy';
 import Shopping from './Shooping/Shopping';
 import Checkout from './Checkout/Checkout';
+import Aboutus from './Aboutus';
+import Extras from "./Extras";
+import Pundit from "./Future/Pundit";
+import Shopkeeper from "./Future/Shopkeeper";
 import Test from "./Test";
 
 import reducer, { initialState } from "./reducer";
@@ -35,10 +39,15 @@ function App(){
               <Route path="/shopping" exact component={Shopping} />
               <Route path="/test" exact component={Test} />
               <Route path='/checkout' exact component={Checkout} />
+              <Route path="/aboutUs" exact component={Aboutus} />
               <Route path="/" exact>
                 <Hero />
+                <Pundit />
                 <PreMadeCart />
+                {/* <Test /> */}
+                <Extras />
                 <EachItem />
+                <Shopkeeper />
                 <FooterCta />
               </Route>
               <FooterMy />
