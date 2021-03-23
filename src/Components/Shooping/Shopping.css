@@ -3,6 +3,7 @@
 .searchBox{
     margin-top:12vh;
     margin-bottom:10vh;
+    /* display: none; */
     padding: 0 12px;
     /* position:fixed; */
     /* z-index: 1; */

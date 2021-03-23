@@ -30,7 +30,10 @@ function NavbarMy(){
         <div className='container'>
             <Navbar collapseOnSelect expand="lg">
                 <Navbar.Brand href="#home" className='brand-my'>Vaaroo.</Navbar.Brand>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <div class="test4">
+                <Nav.Link className="cart-link-2" href="#Cart"><i class="fas fa fa-shopping-cart fa-2x cart"></i><span className="number-items">{basket?.length}</span></Nav.Link>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+                </div>
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
                         <Link to="/"><Nav.Link href="#features"><i class="fas fa fa-home icon"></i>Home</Nav.Link></Link>

@@ -34,7 +34,11 @@ export default function MyCard(props) {
             <div className="contain-items">
                 <div className="card-main-heading">
                     <p>Categories</p>
-                    <Link to="/shopping"><p>View All <i class="fal fa fa-arrow-right"></i></p></Link>
+                    <Link to="/shopping">
+                        <div className="btn-carrier-head">
+                            <p>View All <i class="fal fa fa-arrow-right"></i></p>
+                        </div>
+                    </Link>
                 </div>
                 <Row g={2}>
                     {props.info.map((item, index)=>{
@@ -43,23 +47,26 @@ export default function MyCard(props) {
                                 <div className="card h-100 my-card">
                                     <img src={item.img} className="card-img-top" alt="test"/>
                                     <div className="card-body my-card-body">
+                                    <div className="test-card">
                                         <div className="card-heading">
                                             {item.title}
                                         </div>
-                                        <div className="card-content">
-                                            {/* company & ratings */}
-
-                                            <p>Info</p>
-                                            <p>{item.Price}</p>
+                                        <div className="sneek-helper">
+                                            <p>{props.sneek}</p>
                                         </div>
-                                        <div className="btn-carrier">
-                                            <Link to="/shopping"><Button 
-                                                shape="round" 
-                                                type="primary"
-                                                onClick={()=>addToBasket(index, item.title)}>
-                                                +<i class="fas fa fa-shopping-cart">
-                                            </i></Button></Link>
-                                        </div>
+                                            {/* <div className="card-content">
+                                                <p>Info</p>
+                                                <p>{item.Price}</p>
+                                            </div> */}
+                                            {/* <div className="btn-carrier">
+                                                <Link to="/shopping"><Button 
+                                                    shape="round" 
+                                                    type="primary"
+                                                    onClick={()=>addToBasket(index, item.title)}>
+                                                    +<i class="fas fa fa-shopping-cart">
+                                                </i></Button></Link>
+                                            </div> */}
+                                    </div>  
                                     </div>
                                 </div>
                             </Col>    

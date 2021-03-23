@@ -57,6 +57,25 @@
     padding-top: 0;
     padding-bottom: 0;
 }
+.cart-link-2{
+    display: none;
+}
+@media(max-width:768px){
+    .cart-link{
+        display: none;
+    }
+    .cart-link-2{
+        display: block;
+        color: white;
+    }
+    .cart-link-2:hover{
+        color:white
+    }
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+    color: rgba(255, 255, 255, 0.9);
+}
 
 /* .trans{ */
     /* padding-left: 0px;
@@ -81,4 +100,8 @@
 
 .navbar-light .navbar-toggler-icon {
     background-image: url(../img/menu.svg);
+}
+
+.test4{
+    display: flex;
 }
