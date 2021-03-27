@@ -18,8 +18,10 @@ export default function Shopping() {
     const[{basket}, dispatch] = useStateValue();
     const search = useRef()
     const offsrtmy = useRef()
+    // const offpmo = useRef(window.getElementById("footer-know").offsetTop)
 
     useEffect(()=>{
+        // console.log(offpmo.current);
         if(search.current != null){
             offsrtmy.current = search.current.offsetTop;
             window.onscroll = function() {scrollFun()}
@@ -38,19 +40,20 @@ export default function Shopping() {
                 search.current.classList.remove("sticky")
             }
         }
+        
     }
     return (
         <>
+        <div className='searchBox' ref = {search}> 
+            <Search
+                placeholder="input search text"
+                allowClear
+                enterButton="Search"
+                size="large"
+            />
+        </div>
         <div className="container flex-spacedbtw">
             <div>
-                <div className='searchBox' ref = {search}> 
-                    <Search
-                        placeholder="input search text"
-                        allowClear
-                        enterButton="Search"
-                        size="large"
-                    />
-                </div>
                 <ShoCart />
             </div>
             <div className= "show-cart">

@@ -29,7 +29,7 @@ function NavbarMy(){
         <div className='trans'>
         <div className='container'>
             <Navbar collapseOnSelect expand="lg">
-                <Navbar.Brand href="#home" className='brand-my'>Vaaroo.</Navbar.Brand>
+                <Navbar.Brand href="/" className='brand-my'>Vaaroo.</Navbar.Brand>
                 <div class="test4">
                 <Nav.Link className="cart-link-2" href="#Cart"><i class="fas fa fa-shopping-cart fa-2x cart"></i><span className="number-items">{basket?.length}</span></Nav.Link>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav"/>

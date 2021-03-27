@@ -30,6 +30,11 @@ ul{
     color:white;
 }
 
+.footer-item li:active{
+    text-decoration: underline;
+    color: white;
+}
+
 .footer-item h5{
     color:#6d7d8b
 }

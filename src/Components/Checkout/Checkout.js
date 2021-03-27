@@ -8,20 +8,7 @@ import './Checkout.css'
 
 const { Step } = Steps;
 
-const steps = [
-  {
-    title: 'Address',
-    content: <Getaddress />,
-  },
-  {
-    title: 'Order Summry',
-    content: <OrderSummary />,
-  },
-  {
-    title: 'Payment',
-    content: <Payment />,
-  },
-];
+
 
 export default function Checkout() {
     // 
@@ -34,6 +21,23 @@ export default function Checkout() {
     const prev = () => {
       setCurrent(current - 1);
     };
+
+    const steps = [
+      {
+        title: 'Address',
+        content: <Getaddress />,
+      },
+      {
+        title: 'Order Summry',
+        content: <OrderSummary whenClick={next} />,
+      },
+      {
+        title: 'Payment',
+        content: <Payment />,
+      },
+    ];
+
+    
   
     return (
       <div className="container">
@@ -43,7 +47,12 @@ export default function Checkout() {
           ))}
         </Steps>
         <div className="steps-content">{steps[current].content}</div>
-        <div className="steps-action">
+        <div className="steps-action osd-btn">
+          {current > 0 && (
+            <Button style={{ margin: '0 8px' }} onClick={() => prev()}>
+              Previous
+            </Button>
+          )}
           {current < steps.length - 1 && (
             <Button type="primary" onClick={() => next()}>
               Next
@@ -54,11 +63,7 @@ export default function Checkout() {
               Done
             </Button>
           )}
-          {current > 0 && (
-            <Button style={{ margin: '0 8px' }} onClick={() => prev()}>
-              Previous
-            </Button>
-          )}
+          
         </div>
       </div>
     );

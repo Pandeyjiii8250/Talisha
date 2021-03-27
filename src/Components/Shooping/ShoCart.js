@@ -23,12 +23,13 @@ export default function ShoCart() {
     const {itemDetail, loading} = useDataValue();
     const [{basket}, dispatch] = useStateValue()
     //function that perfoem add to baset while button is pressed
-    const addToBasket = (id, title)=>{
+    const addToBasket = (id, title, img)=>{
         dispatch({
             type:"ADD_ITEM",
             payload:{
                 id:id,
                 title:title,
+                img:img,
                 price:10,
                 count:1
             }
@@ -38,42 +39,43 @@ export default function ShoCart() {
         <DataProvider>
             <Container>
                 <div className="contain-items">
-                    {/* <div class="row row-cols-sm-2 row-cols-md-2 row-cols-lg-4"> */}
                     <Row g={2}>
                         {itemDetail.current.map((item, index)=>{
                             return(
-                                <Col xs={6} sm={4} md={4} lg={3} className="my-col-sho">
-                                    <div className="card h-100 my-card">
-                                        <img src={item.img} className="card-img-top" alt="test"/>
-                                        <div className="card-body my-card-body">
-                                            <div className="card-heading">
-                                                {item.title}
-                                            </div>
-                                            <div className="card-content">
-                                                {/* company & ratings */}
-
-                                                <p>Info</p>
-                                                <p>{item.Price}</p>
-                                            </div>
-                                            <div className="btn-carrier">
-                                                <Button 
-                                                    shape="round" 
-                                                    type="primary"
-                                                    onClick={()=>addToBasket(index, item.title)}>
-                                                    +<i class="fas fa fa-shopping-cart">
-                                                </i></Button>
+                                <Col xs={12} sm={6} md={6} lg={6} className="my-col-sho">
+                                    {/* my-card get's it's css roperty from MyCard.css  */}
+                                    <div className="h-100 my-card">
+                                    <div className="shop-card">
+                                        <div className="shop-img-container">
+                                            <img src={item.img} className="card-img-top" alt="test"/>
+                                            <p>Information about product and company...</p>
+                                        </div>
+                                        <div className="card-body shop-card-body">
+                                            <div className="shop-card-content">
+                                                <p>{item.title}</p>
+                                                <p>{item.Price} rs/-</p>
+                                                <p>Get Upto 30% off</p>
+                                                <p>Quantity</p>    
                                             </div>
                                         </div>
                                     </div>
-                                </Col>
-                                
+                                        <div className="shop-btn-carrier">
+                                            <Button 
+                                                className="add-cart-btn"
+                                                shape="round" 
+                                                type="primary"
+                                                onClick={()=>addToBasket(index, item.title, item.img)}>
+                                                +<i class="fas fa fa-shopping-cart fa-2x">
+                                            </i></Button>
+                                            <p>Special offers on offline payment</p>
+                                        </div>
+                                    </div>
+                                </Col>    
                             );
                             }
                         )}
                     </Row>    
                 </div>
-                
-                {/* <Cardant2 /> */}
             </Container>
         </DataProvider>
     )

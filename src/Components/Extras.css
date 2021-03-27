@@ -1,105 +1,40 @@
-.extras-grid{
+/* extras.css style sheet */
+
+.extras-flex{
     display:none
 }
 
 @media(max-width:768px){
-    .extras-grid{
+    .extras-flex{
         display: flex;
-        /* grid-column-gap:10px;
-        grid-row-gap:10px; */
         border-radius: 10px;
         margin-top: 20px;
         margin-bottom: 20px;
         justify-content: stretch;
         align-items: stretch;
-        /* height: 50%; */
         background: linear-gradient(to right top, rgba(0,255,163,0.84), rgba(43, 205, 216, 0.67), rgba(118,147,251,0.91));
     }
 
+    /* delivery card style  */
+
     .delivery-card{
-        /* grid-row-start: 1; */
-        /* grid-row-end: 3; */
-        /* background: linear-gradient(to right top,#ff9800, #f39609); */
         border-radius: 10px;
-        /* display: flex; */
-        /* align-items: center; */
-        /* justify-content: center; */
-        padding-top: 10px;
+        padding: 10px 0 10px 10px;
+        /* padding-top: 10px;
         padding-bottom: 10px;
-        padding-left: 10px;
+        padding-left: 10px; */
     }
 
-    .return-card{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px 10px 10px 10px;
-        border-radius: 20px;
-    }
-
-    .bulk-card{
-        border-radius: 10px;
-        /* background-color: #0091ff94; */
-        /* background: linear-gradient(to right top, #65dfc9, #6cdbeb); */
-        padding: 0 10px 10px 10px;  
-    }
-    
-    .delivery-card,.return-card,.bulk-card div{
-        text-align: center;
-        /* width: 100%; */
-        margin: 0 auto;
-        /* color: white; */
-    }
-    /* .deliery-img{
-        width: 50%;
-        height: 50%;
-    } */
-
-    .return-img{
-        width: 35%;
-        height: 35%;
-    }
-
-    .glass{
-        background-color: white;
-        background: linear-gradient(to right top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
-        border-radius: 10px;
-        box-shadow: 
-        -3px -3px 5px hsla(0, 0%, 0%, 0.192) inset,
-        3px 3px 8px #ffffffd6 inset;
-    }
-
-    
-
-    .special-info{
-        padding: 10px;
-    }
-
-    .special-info p{
-        margin-bottom: 0;
-    }
-
-    .special-info h4{
-        margin-top: 0px;
-        margin-bottom: 0;
-    }
     .delivery-glass-card{
         padding-top: 2.25rem;
         padding-bottom: 2.25rem;
         padding-left: 25px;
         padding-right: 25px;
-
     }
 
     .delivery-glass-card img{
         width:80%;
         height: 80%;
-    
-    }
-
-    .main-extras-info{
-        font-size: 1.5rem;
-        color:#272727;
     }
 
     .less-imp-info p{
@@ -109,7 +44,66 @@
         font-size: smaller;
     }
 
+    /* return card style */
+
+    .return-card{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 10px 10px 10px;
+        border-radius: 20px;
+    }
+
     .return-info{
         margin-bottom: 0;
     }
+
+    .return-img{
+        width: 35%;
+        height: 35%;
+    }
+
+    /* bulk card style  */
+
+    .bulk-card{
+        border-radius: 10px;
+        padding: 0 10px 10px 10px;  
+    }
+    
+    .bulk-glass-card{
+        padding: 10px;
+    }
+
+    .bulk-glass-card p{
+        margin-bottom: 0;
+    }
+
+    .bulk-glass-card h4{
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    /* styles common to all three cards  */
+
+    .delivery-card,.return-card,.bulk-card div{
+        text-align: center;
+        margin: 0 auto;
+        color:#272727;
+    }
+
+    
+    .glass{
+        background-color: white;
+        background: linear-gradient(to right top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+        border-radius: 10px;
+        box-shadow: 
+        -3px -3px 5px hsla(0, 0%, 0%, 0.192) inset,
+        3px 3px 8px #ffffffd6 inset;
+    }
+
+    .main-extras-info{
+        font-size: 1.5rem;
+    }
+
+    
 }

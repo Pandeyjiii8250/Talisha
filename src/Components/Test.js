@@ -1,41 +1,89 @@
-// This is test ground for all activities
-import "./Test.css";
-import fast from '../img/fast.png';
-import returnIcon from "../img/logistics.svg";
+//main test area
 
-import Button from 'react-bootstrap/Button'
+import React from 'react';
 
-import React, {useState, useEffect} from 'react';
-// import Cardant2 from './Cardant2'
+//antd framework
+import {Button} from "antd";
+
+//sample information
+// import {catOneCards, catTwoCards} from "../CardDetail";
+
+//contex provider
 import {DataProvider} from './Contex/DataProvider';
-// import {Button} from "antd";
-// import {catOneCards, catTwoCards} from "./CardDetail";
+import {useDataValue} from './Contex/DataProvider';
+import {useStateValue} from './StateProvider';
+
+//bootstrap framework
 import Container from 'react-bootstrap/Container';
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
-// import Carousel from 'react-bootstrap/Carousel';
 
-export default function Test(){
+//prsonal style sheet
+import "./Test.css";
+
+export default function Test() {
+    const {itemDetail, loading} = useDataValue();
+    const [{basket}, dispatch] = useStateValue()
+    
     return (
-        <Container>
-        <>
-            {/* <div className="test3">
-                <div>
-                    <p>For</p>
-                    <h2>Pundits</h2>
-                    <p>Help Devotee</p>
-                    <Button variant="outline-light">Sign IN</Button>
+        <DataProvider>
+            <Container>
+                {/* the below class get's it's css style from MyCard.css  */}
+                <div className="address-show">
+                    <p>Address Details</p>
+                    <p>R.M Dubey Chawl Amrut Nagar ghatkopar west 400086</p>
                 </div>
-                <div>
-                    <p>For</p>
-                    <h2>Shopkeeper</h2>
-                    <p>Sell Online</p>
-                    <Button variant="outline-light">Sign In</Button>
+                <div className="total gd">
+                    <p>Grand Total </p>
+                    <p>2560 /-</p>
                 </div>
+                <div className="osd-btn">
+                    <Button
+                        type="primary">
+                    Next
+                    </Button>
+                </div>
+                <div className="show-item-info">
+                    <h3>Order Summary</h3>
+                    {itemDetail.current.map((item, index)=>{
+                        return(
+                            <div className="each-item">
+                                <div className="osd-img">
+                                    <img src={item.img} alt="product img" className="osd-img" />
+                                </div>
+                                <div className="osd-item-info">
+                                    <p>{item.title}</p>
+                                    <p>10kg</p>
+                                </div>
+                                <div className="osd-price">
+                                    <p>{item.Price} /-</p>
+                                </div>
+                            </div>
 
-            </div> */}
-        </>
-        </Container>
-    );
+                        )
+                    })
+                    }
+                    
+                    <div className="payment-info">
+                        <div className="total osd-total">
+                            <p>Total</p>
+                            <p>2500 /-</p>
+                        </div>
+                        <div className="total osd-extras">
+                            <p>Other Charges</p>
+                            <p>60 /-</p>
+                        </div>
+                        <div className="total osd-gd">
+                            <p>Grand Total</p>
+                            <p>2560 /-</p>
+                        </div>
+                        <p className="policy">Return Policy</p>
+                    </div>
+                </div>
+                <div className="osd-btn">
+                    <Button>Add More</Button>
+                    <Button type="primary">Next</Button>
+                </div>
+            </Container>
+        </DataProvider>
+    )
 }
 

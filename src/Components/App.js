@@ -13,13 +13,18 @@ import Hero from "./Cta/Hero/Hero";
 import PreMadeCart from './PreMade/PreMadeCarts';
 import EachItem from './EachItem/EachItem';
 import FooterCta from './Cta/FooterCta/FooterCta';
-import FooterMy from './FooterMy';
+import FooterMy from './Footer/FooterMy';
 import Shopping from './Shooping/Shopping';
 import Checkout from './Checkout/Checkout';
 import Aboutus from './Aboutus';
 import Extras from "./Extras";
 import Pundit from "./Future/Pundit";
 import Shopkeeper from "./Future/Shopkeeper";
+import PrivacyPolicy from "./Footer/PrivacyPolicy";
+import ReturnPolicy from "./Footer/ReturnPolicy";
+import TermsUse from "./Footer/TermsUse";
+
+
 import Test from "./Test";
 
 import reducer, { initialState } from "./reducer";
@@ -27,6 +32,9 @@ import reducer, { initialState } from "./reducer";
 // import '../firebase';
 import FireSignup from './FireSignup';
 import './App.css';
+import ShippingPolicy from "./Footer/ShippingPolicy";
+import Comming from "./Footer/Comming";
+
 
 function App(){
   return (
@@ -40,6 +48,11 @@ function App(){
               <Route path="/test" exact component={Test} />
               <Route path='/checkout' exact component={Checkout} />
               <Route path="/aboutUs" exact component={Aboutus} />
+              <Route path="/privacy" exact component={PrivacyPolicy} />
+              <Route path="/return" exact component={ReturnPolicy} />
+              <Route path="/termsofuse" exact component={TermsUse}/>
+              <Route path="/shipping" exact component={ShippingPolicy} />
+              <Route path="/cmsoon" exact component={Comming} />
               <Route path="/" exact>
                 <Hero />
                 <Pundit />

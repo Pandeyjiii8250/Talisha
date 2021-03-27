@@ -7,3 +7,104 @@
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
+/* order summary css style  */
+/* order summary  */
+/* osd oder summary detail  */
+@media(max-width:768px){
+    .address-show{
+        display: block;
+        background-color: #ff9900c0;
+        padding: 10px;
+        margin-top: 10px;
+        margin-bottom:14px;
+    }
+
+    .address-show p:nth-of-type(1){
+        font-size: large;
+        font-weight: 400;
+        margin-bottom: 2px;
+    }
+
+    .address-show p:nth-of-type(2){
+        font-weight: 500;
+    }
+
+    .gd{
+        border: 1px solid black;
+        padding: 10px;
+        margin-bottom: 14px;
+    }
+
+    .gd p{
+        margin-bottom: 0;
+        font-size: 1.2rem;
+    }
+
+    .gd p:nth-of-type(2){
+        font-weight: 500;
+    }
+
+    .total{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .osd-btn{
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 20px;
+    }
+    .each-item{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px dotted black;
+    }
+
+    .osd-img{
+        width: 40%;
+    }
+    .osd-img img{
+        width: 100%;
+    }
+
+    .osd-item-info{
+        padding:0 20px 0 20px;
+    }
+    .osd-item-info p{
+        font-size: large;
+        font-weight: 500;
+        color: #5f6368;
+    }
+
+    .osd-price{
+        padding: 0 0 0 10px;
+    }
+
+    .osd-price p{
+        font-weight: 600;
+        font-size: 1.15rem;
+    }
+
+    .policy{
+        color: cadetblue;
+        font-size: x-small;
+    }
+
+    .osd-total, .osd-extras p{
+        color: #5f6368;
+        font-size: medium;
+    }
+
+    .osd-extras{
+        border-bottom: 1px solid black;
+    }
+
+    .osd-gd{
+        font-size: large;
+        font-weight: 500;
+        
+    }
+}
