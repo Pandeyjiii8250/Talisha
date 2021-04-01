@@ -1,5 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/auth";
+
+//To use firebase ui 
 var firebaseui = require("firebaseui");
 
 //To use database and storage
@@ -28,8 +30,8 @@ const uiconfig ={
     //         return true;
     //       },
     // },
-    // signInSuccessUrl: 'http://localhost:3000/',
-    signInSuccessUrl: 'https://test-auth-7144a.web.app/',
+    signInSuccessUrl: 'http://localhost:3000/',
+    // signInSuccessUrl: 'https://test-auth-7144a.web.app/',
     signInOptions: [
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         {
@@ -54,13 +56,18 @@ const uiconfig ={
 
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
-ui.start('#firebaseui-auth-container', uiconfig);
+export const startUi = ()=>{
+    ui.start('#firebaseui-auth-container', uiconfig);
+}
 
 
-export var db = firebase.firestore();
+//This is equivalent to firebase.firestore(). It is used to access database
+export var db = app.firestore();
+
+//this below is equivqlent to firebase.auth()
 export const auth = app.auth();
-// export var storage = firebase.storage();
-// export var storageRef = storage.ref();
+
 export const provider = new firebase.auth.GoogleAuthProvider()
 export default app;
+
 

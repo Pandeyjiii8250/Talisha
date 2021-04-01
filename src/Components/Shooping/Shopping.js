@@ -12,12 +12,15 @@ import ShoCart from './ShoCart'
 import SidebarCart from "./SidebarCart";
 import PriceShow from "./PriceShow";
 import {useStateValue} from '../StateProvider'
+import { db } from '../../firebase';
+import { useAuth } from '../Contex/AuthContex';
 
 const {Search} = Input;  //requirements to use input
 export default function Shopping() {
     const[{basket}, dispatch] = useStateValue();
     const search = useRef()
     const offsrtmy = useRef()
+    const {currentUser} = useAuth()
     // const offpmo = useRef(window.getElementById("footer-know").offsetTop)
 
     useEffect(()=>{
@@ -26,7 +29,23 @@ export default function Shopping() {
             offsrtmy.current = search.current.offsetTop;
             window.onscroll = function() {scrollFun()}
         }
-    },[])
+
+        return()=>{
+            console.log(basket)
+            if (basket.length && currentUser!=null){
+                console.log("Helllllo");
+                db.collection('user').doc(currentUser.uid).set({
+                    'basket': basket
+                },{merge:true})
+                .then(()=>{
+                    console.log("Basket added successfully");
+                })
+                .catch((e)=>{
+                    console.log(e)
+                })
+            }
+        }
+    },[basket])
     
 
     const scrollFun = ()=>{

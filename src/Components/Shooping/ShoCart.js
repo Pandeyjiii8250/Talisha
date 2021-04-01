@@ -4,7 +4,7 @@ import React from 'react';
 import {Button} from "antd";
 
 //sample information
-import {catOneCards, catTwoCards} from "../CardDetail";
+// import {catOneCards, catTwoCards} from "../CardDetail";
 
 //contex provider
 import {DataProvider} from '../Contex/DataProvider';
@@ -64,7 +64,10 @@ export default function ShoCart() {
                                                 className="add-cart-btn"
                                                 shape="round" 
                                                 type="primary"
-                                                onClick={()=>addToBasket(index, item.title, item.img)}>
+                                                onClick={(e)=>{
+                                                    e.preventDefault()
+                                                    addToBasket(index, item.title, item.img)
+                                                    }}>
                                                 +<i class="fas fa fa-shopping-cart fa-2x">
                                             </i></Button>
                                             <p>Special offers on offline payment</p>

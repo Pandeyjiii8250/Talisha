@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import { Steps, Button, message } from 'antd';
 import Getaddress from './Getaddress';
 import OrderSummary from './OrderSummary';
@@ -11,10 +11,14 @@ const { Step } = Steps;
 
 
 export default function Checkout() {
-    // 
+    const formRef = useRef()
     const [current, setCurrent] = React.useState(0);
 
     const next = () => {
+      if(current === 0){
+        
+        formRef.current.requestSubmit();
+      }
       setCurrent(current + 1);
     };
   
@@ -25,7 +29,7 @@ export default function Checkout() {
     const steps = [
       {
         title: 'Address',
-        content: <Getaddress />,
+        content: <Getaddress getRef={formRef}/>,
       },
       {
         title: 'Order Summry',
