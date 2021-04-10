@@ -9,59 +9,45 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 
+import CardsContainer, {MainCard} from '../Cards'
 
 //personal css
 import './MyCard.css';
 
 export default function MyCard(props) {
-    // const [{basket}, dispatch] = useStateValue()
-
-    //function that perfoem add to baset while button is pressed
-    // const addToBasket = (id, title)=>{
-    //     dispatch({
-    //         type:"ADD_ITEM",
-    //         payload:{
-    //             id:id,
-    //             title:title,
-    //             price:10,
-    //             count:1
-    //         }
-    //     })
-    // }
+    
     return (
         // <Container>
-            <div className="contain-items">
-                <div className="card-main-heading">
-                    <p>Categories</p>
-                    <Link to="/shopping">
-                        <div className="btn-carrier-head">
-                            <p>View All <i class="fal fa fa-arrow-right"></i></p>
-                        </div>
-                    </Link>
-                </div>
-                <Row g={2}>
-                    {props.info.map((item, index)=>{
-                        return(
-                            <Col xs={6} sm={4} md={4} lg={3} className="my-col" key={index} id={index} >
-                                <div className="card h-100 my-card">
-                                    <img src={item.img} className="card-img-top" alt="test"/>
-                                    <div className="card-body my-card-body">
-                                    <div className="home-card-content">
-                                        <div className="card-heading">
-                                            {item.title}
-                                        </div>
-                                        <div className="sneek-helper">
-                                            <p>{props.sneek}</p>
-                                        </div>
-                                    </div>  
-                                    </div>
-                                </div>
-                            </Col>    
-                        );
-                        }
-                    )}
-                </Row>    
+        <CardsContainer>
+            <div className="card-main-heading">
+                <p>Categories</p>
+                <Link to="/shopping">
+                    <div className="btn-carrier-head">
+                        <p>View All <i class="fal fa fa-arrow-right"></i></p>
+                    </div>
+                </Link>
             </div>
+            <Row g={2}>
+                {props.info.map((item, index)=>{
+                    return(
+                        <MainCard xs={6} sm={4} md={4} lg={3} index={index}>
+                            <img src={item.img} className="card-img-top" alt="test"/>
+                            <div className="card-body my-card-body">
+                            <div className="home-card-content">
+                                <div className="card-heading">
+                                    {item.title}
+                                </div>
+                                <div className="sneek-helper">
+                                    <p>{props.sneek}</p>
+                                </div>
+                            </div>  
+                            </div>
+                        </MainCard>
+                    );
+                    }
+                )}
+            </Row>    
+        </CardsContainer>
         // </Container>
     )
 }

@@ -34,13 +34,15 @@ import FireSignup from './FireSignup';
 import './App.css';
 import ShippingPolicy from "./Footer/ShippingPolicy";
 import Comming from "./Footer/Comming";
+import Cart from "./Cart";
 
 
 function App(){
+  
   return (
     <Router>
+    <StateProvider initialState={initialState} reducer={reducer}>
       <AuthProvider>
-        <StateProvider initialState={initialState} reducer={reducer}>
           <DataProvider>
               <NavbarMy />
               <Route path="/Signup" exact component={FireSignup} />
@@ -53,6 +55,7 @@ function App(){
               <Route path="/termsofuse" exact component={TermsUse}/>
               <Route path="/shipping" exact component={ShippingPolicy} />
               <Route path="/cmsoon" exact component={Comming} />
+              <Route path="/cart" exact component={Cart} />
               <Route path="/" exact>
                 <Hero />
                 <Pundit />
@@ -65,8 +68,8 @@ function App(){
               </Route>
               <FooterMy />
           </DataProvider>
-        </StateProvider>
-      </AuthProvider>
+        </AuthProvider>
+      </StateProvider>
     </Router>
   );
 // }

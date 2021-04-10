@@ -16,7 +16,7 @@ import "./Checkout.css"
 
 export default function OrderSummary(props) {
 
-    const[{basket}, dispatch] = useStateValue()
+    const[{basket, userInfo}, dispatch] = useStateValue()
     
     return (
         <>
@@ -24,7 +24,7 @@ export default function OrderSummary(props) {
                 {/* the below class get's it's css style from MyCard.css  */}
                 <div className="address-show">
                     <p>Address Details</p>
-                    <p>R.M Dubey Chawl Amrut Nagar ghatkopar west 400086</p>
+                    <p>{`${userInfo.address.houseNo} ${userInfo.address.other} ${userInfo.address.city} ${userInfo.address.state} ${userInfo.address.pincode}` }</p>
                 </div>
                 <div className="total gd">
                     <p>Grand Total </p>

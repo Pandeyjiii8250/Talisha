@@ -1,8 +1,4 @@
 /* MyCard style sheet  */
-.contain-items{
-    padding: 1.25rem;
-    border: 1px solid #f0f0f0;
-}
 
 
 /* card-main-heading and it's style hear style  */
@@ -56,16 +52,7 @@
 }
 
 @media (max-width:768px){
-    .my-col{
-        padding-left: 0.25rem;
-        padding-right: 0.25rem;
-        margin-top: 0.55rem;
-    }
-
-    .my-card{
-        padding:0 ;
-        padding-top: 1.25rem;
-    }
+    
 
     /* from EachItem.js  */
     .gradient-container1{

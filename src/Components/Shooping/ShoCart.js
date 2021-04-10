@@ -1,5 +1,7 @@
 import React from 'react';
 
+import CardsContainer, {MainCard} from '../Cards'
+
 //antd framework
 import {Button} from "antd";
 
@@ -14,7 +16,6 @@ import {useStateValue} from '../StateProvider';
 //bootstrap framework
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 //prsonal style sheet
 import "./ShoCart.css";
@@ -38,47 +39,45 @@ export default function ShoCart() {
     return (
         <DataProvider>
             <Container>
-                <div className="contain-items">
+                <CardsContainer>
                     <Row g={2}>
-                        {itemDetail.current.map((item, index)=>{
-                            return(
-                                <Col xs={12} sm={6} md={6} lg={6} className="my-col-sho">
-                                    {/* my-card get's it's css roperty from MyCard.css  */}
-                                    <div className="h-100 my-card">
-                                    <div className="shop-card">
-                                        <div className="shop-img-container">
-                                            <img src={item.img} className="card-img-top" alt="test"/>
-                                            <p>Information about product and company...</p>
-                                        </div>
-                                        <div className="card-body shop-card-body">
-                                            <div className="shop-card-content">
-                                                <p>{item.title}</p>
-                                                <p>{item.Price} rs/-</p>
-                                                <p>Get Upto 30% off</p>
-                                                <p>Quantity</p>    
-                                            </div>
+                    {itemDetail.current.map((item, index)=>{
+                        return(
+                            <MainCard xs={12} sm={6} md={4} lg={3} index={index}>
+                                <div className="shop-card">
+                                    <div className="shop-img-container">
+                                        <img src={item.img} className="card-img-top" alt="test"/>
+                                        <p>Information about product and company...</p>
+                                    </div>
+                                    <div className="card-body shop-card-body">
+                                        <div className="shop-card-content">
+                                            <p>{item.title}</p>
+                                            <p>{item.Price} rs/-</p>
+                                            <p>Get Upto 30% off</p>
+                                            <p>Quantity</p>    
                                         </div>
                                     </div>
-                                        <div className="shop-btn-carrier">
-                                            <Button 
-                                                className="add-cart-btn"
-                                                shape="round" 
-                                                type="primary"
-                                                onClick={(e)=>{
-                                                    e.preventDefault()
-                                                    addToBasket(index, item.title, item.img)
-                                                    }}>
-                                                +<i class="fas fa fa-shopping-cart fa-2x">
-                                            </i></Button>
-                                            <p>Special offers on offline payment</p>
-                                        </div>
-                                    </div>
-                                </Col>    
-                            );
-                            }
-                        )}
+                                </div>
+                                <div className="shop-btn-carrier">
+                                    <Button 
+                                        className="add-cart-btn"
+                                        shape="round" 
+                                        type="primary"
+                                        onClick={(e)=>{
+                                            e.preventDefault()
+                                            addToBasket(index, item.title, item.img)
+                                            }}>
+                                        +<i class="fas fa fa-shopping-cart fa-2x">
+                                    </i></Button>
+                                    <p>Special offers on offline payment</p>
+                                </div>
+                            </MainCard>
+                        );
+                        }
+                    )}
                     </Row>    
-                </div>
+            
+                </CardsContainer>
             </Container>
         </DataProvider>
     )

@@ -1,10 +1,21 @@
+
+
 export const initialState = {
-    search:[],
-    basket:[
-        
-    ],
-    // user:null
+    //orders Info if placed
+    orderInfo:{
+        orderId:null,
+        orderBasket:[],
+        status:null
+    },
+    basket:[],
+    //userInfo which is use as checkout
+    userInfo:{
+        address:null
+    }
 }
+
+
+
 
 export const getBasketTotal = (basket) => 
   basket?.reduce((amount, item) => item.price*item.count + amount, 0);
@@ -44,6 +55,29 @@ function reducer(state, action){
             return {
                 ...state,
                 basket: modifyBasket
+            }
+        case "ADD_USER":
+
+            console.log(action.payload.addDetail)
+            return {
+                ...state,
+                userInfo:{
+                    address:action.payload.addDetail
+                }
+            }
+        case "DEL_CART":
+            return{
+                ...state,
+                basket:action.payload.basket
+            }
+        case "SET_ORDER":
+            return{
+                ...state,
+                order:{
+                    orderId:action.payload.orderId,
+                    orderBasket:action.payload.basket,
+                    status:action.payload.status
+                }
             }
         default:
             return(state);
