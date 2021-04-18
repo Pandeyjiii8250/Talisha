@@ -30,6 +30,7 @@ export default function Checkout() {
           console.log("form submitted")
           setCurrent(current + 1)
         })
+        //heare we submit form
         formRef.current.requestSubmit()
       }else{
         setCurrent(current + 1);

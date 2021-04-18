@@ -49,7 +49,9 @@ export default function Getaddress(props) {
                 'houseNo': formVal.houseNo.value,
                 'other': formVal.other.value
             }
+            //update throught reducer
             setUserInfo(addInfo)
+            //update firebase 
             saveUserAddress(addInfo)
             return true;
         }

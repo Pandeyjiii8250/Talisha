@@ -23,6 +23,20 @@ export default function Shopping() {
     const offsrtmy = useRef()
     const {currentUser} = useAuth()
 
+    const scrollFun = ()=>{
+        if(window.pageYOffset >= offsrtmy.current){
+            if(search.current != null){
+                search.current.classList.add("sticky")
+            }
+        }
+        else{
+            if (search.current != null){
+                search.current.classList.remove("sticky")
+            }
+        }
+        
+    }
+
     //runs every time when window is scrolled
     window.onscroll = function(){
         //this set the offset only once
@@ -97,19 +111,7 @@ export default function Shopping() {
     },[basket])
     
 
-    const scrollFun = ()=>{
-        if(window.pageYOffset >= offsrtmy.current){
-            if(search.current != null){
-                search.current.classList.add("sticky")
-            }
-        }
-        else{
-            if (search.current != null){
-                search.current.classList.remove("sticky")
-            }
-        }
-        
-    }
+    
     return (
         <>
         <div className='searchBox' ref = {search}> 
