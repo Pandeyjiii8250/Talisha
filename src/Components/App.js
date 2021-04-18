@@ -35,6 +35,7 @@ import './App.css';
 import ShippingPolicy from "./Footer/ShippingPolicy";
 import Comming from "./Footer/Comming";
 import Cart from "./Cart";
+import OrderInfo from './OrderInfo'
 
 
 function App(){
@@ -56,6 +57,7 @@ function App(){
               <Route path="/shipping" exact component={ShippingPolicy} />
               <Route path="/cmsoon" exact component={Comming} />
               <Route path="/cart" exact component={Cart} />
+              <Route path="/order" exact component={OrderInfo} />
               <Route path="/" exact>
                 <Hero />
                 <Pundit />

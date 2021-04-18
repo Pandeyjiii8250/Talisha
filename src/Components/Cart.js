@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 import './Cart.css'
 import {Button} from "antd";
 import {useStateValue} from './StateProvider';
@@ -16,21 +17,21 @@ export default function Cart() {
         <div className="container">
             <div className="display-order">
                 <div className="Info-panel">
-                    <p>Order Current Status</p>
-                    <p>Order date of delivery</p>
-                    <p>Payent Option</p>
+                    <p>Your Order</p>
+                    <p>2 Days from now</p>
+                    <p>Cash On Delivery</p>
                     <p>Cancel Order</p>
                 </div>
                 <div className="order-btn">
-                    <Button
+                    <Link to="/order"><Button
                         type="primary"
                     >Check More
-                    </Button>
+                    </Button></Link>
                 </div>
             </div>
             <CardsContainer>
                 <Row g={2}>
-                {catOneCards.map((item, index)=>{
+                {basket.map((item, index)=>{
                     return(
                         <MainCard xs={12} sm={6} md={4} lg={3} index={index}>
                             <div className="cart-card-item">
@@ -42,7 +43,7 @@ export default function Cart() {
                                     <p>10kg</p>
                                 </div>
                                 <div>
-                                    <p className="cart-item-price">{item.price}10/-</p>
+                                    <p className="cart-item-price">{item.price}/-</p>
                                     <div className="cart-change-btn">
                                         <Button type="primary">+</Button>
                                         <div>1</div>

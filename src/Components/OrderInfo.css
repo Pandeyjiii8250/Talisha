@@ -1,0 +1,44 @@
+.order-add{
+    margin-top:1rem;
+    margin-bottom:1rem;
+    border: 2px solid #dde1e7;
+    padding: 1.25rem;
+}
+
+.order-delivery-stat{
+    padding:1.25rem;
+    border: 2px solid #dde1e7;
+    margin-bottom: 1rem;
+}
+
+.order-delivery-stat span{
+    color:coral
+}
+
+.order-delivery-stat p{
+    font-size: x-large;
+    margin-bottom: 0;
+}
+
+.order-card-item{
+    display: flex;
+}
+
+.order-item-content{
+    width: 50%;
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+}
+
+.order-item-content p{
+    font-size: x-large;
+}
+
+.order-card-item-info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-card-item-info p{
+    font-size: large;
+}

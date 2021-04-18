@@ -53,20 +53,30 @@ export function AuthProvider( {children}) {
 
     function setOrderInfo(order){
         if(order.status !== 'constructing'){
-            dispatch({
-                type:"SET_ORDER",
-                payload:{
-                    basket:order.basket,
-                    orderId:order.orderId,
-                    status:order.status
-                }
+            // console.log(order.orderId)
+            db.collection('orders').doc(order.orderId.toString()).get()
+            .then((docRef)=>{
+                // console.log(docRef.data())
+                dispatch({
+                    type:"SET_ORDER",
+                    payload:{
+                        basket:docRef.data().basket,
+                        orderAdd:docRef.data().userAdd,
+                        orderId:order.orderId,
+                        status:order.status
+                    }
+                })
             })
+            .catch((e)=>console.log(e))
+
+            
         }
     }
 
     function setNewUser(){
         // to check if user has cartId or not
-        const cartId = getCartId() ? getCartId : null
+        const cartId = getCartId()
+        // console.log(cartId)
         db.collection('user').doc(currentUser.uid).set({
             personal:{
                 name:currentUser.displayName,

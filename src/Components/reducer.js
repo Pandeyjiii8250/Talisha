@@ -5,7 +5,8 @@ export const initialState = {
     orderInfo:{
         orderId:null,
         orderBasket:[],
-        status:null
+        status:null,
+        orderAdd:{}
     },
     basket:[],
     //userInfo which is use as checkout
@@ -57,7 +58,6 @@ function reducer(state, action){
                 basket: modifyBasket
             }
         case "ADD_USER":
-
             console.log(action.payload.addDetail)
             return {
                 ...state,
@@ -71,12 +71,14 @@ function reducer(state, action){
                 basket:action.payload.basket
             }
         case "SET_ORDER":
+            // console.log(action.payload.orderAdd)
             return{
                 ...state,
-                order:{
+                orderInfo:{
                     orderId:action.payload.orderId,
                     orderBasket:action.payload.basket,
-                    status:action.payload.status
+                    status:action.payload.status,
+                    orderAdd:action.payload.orderAdd
                 }
             }
         default:
