@@ -23,6 +23,7 @@ import Shopkeeper from "./Future/Shopkeeper";
 import PrivacyPolicy from "./Footer/PrivacyPolicy";
 import ReturnPolicy from "./Footer/ReturnPolicy";
 import TermsUse from "./Footer/TermsUse";
+import Productpage from './Productpage';
 
 
 import Test from "./Test";
@@ -58,6 +59,7 @@ function App(){
               <Route path="/cmsoon" exact component={Comming} />
               <Route path="/cart" exact component={Cart} />
               <Route path="/order" exact component={OrderInfo} />
+              <Route path='/product' exact component={Productpage} />
               <Route path="/" exact>
                 <Hero />
                 <Pundit />
