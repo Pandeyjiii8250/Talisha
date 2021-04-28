@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useRef} from 'react'
+import {Link} from 'react-router-dom'
 import {Button} from 'antd'
 import CardsContainer, {MainCard} from './Cards'
 
@@ -8,14 +9,62 @@ import {useDataValue} from './Contex/DataProvider';
 import Row from 'react-bootstrap/Row'
 
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
-import Tooltip from 'react-bootstrap/Tooltip'
+// import Tooltip from 'react-bootstrap/Tooltip'
 import Popover from 'react-bootstrap/Popover'
+
+import {useStateValue} from './StateProvider'
+import {db} from '../firebase' 
+// import {  } from '../Contex/AuthContex';
 
 import './Productpage.css'
 
 export default function Productpage() {
     
+    const [{basket},dispatch] = useStateValue();
     const {itemDetail, loading} = useDataValue();
+    const btnPos = useRef(null);
+
+    function hideBtn(){
+        //1923
+        // console.log(window.pageYOffset)
+        if(btnPos.current != null){
+            if (window.pageYOffset > 1923){
+                btnPos.current.classList.add("hide")
+            }else{
+                btnPos.current.classList.remove("hide")
+            }
+        }
+        
+    }
+    window.onscroll = function(){
+        hideBtn()
+    }
+
+    function getCartId(){
+        var cartId = null
+        const getCookie = document.cookie;
+        const cookieList = getCookie.split(';')
+        cookieList.forEach((item)=>{
+            if(item.includes('cartId')){
+                cartId = item.split('=')[1]
+            }
+        })
+        return cartId
+    }
+
+    function addItemsToBasket(){
+        //this will update whole cart
+        dispatch({
+            type:"NEW_BASKET",
+            payload:{
+                newBasket:itemDetail.current
+            }
+        })
+        const cartId = getCartId()
+        db.collection('carts').doc(cartId.toString()).set({
+            basket:itemDetail.current
+        },{merge:true})
+    }
 
     const popover = (
         <Popover id="popover-basic">
@@ -89,10 +138,10 @@ export default function Productpage() {
                 </Row>
             </CardsContainer>
         </div>
-        <div className="pp-btn-contain">    
+        <div className="pp-btn-contain" ref={btnPos}>    
             <div className="pp-btn">
-                <Button className="bottom-btn">Add to Cart</Button>
-                <Button type="primary" className="bottom-btn">Buy Now</Button>
+               <Link to="/cart"><Button className="bottom-btn" onClick={addItemsToBasket}>Add to Cart</Button></Link>
+               <Link to="/checkout"><Button type="primary" className="bottom-btn" onClick={addItemsToBasket}>Buy Now</Button></Link>
             </div>
         </div>
         </>

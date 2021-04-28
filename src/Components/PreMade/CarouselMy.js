@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-
+import {Link} from 'react-router-dom'
 //antd framework
 import {Button}  from 'antd';
 // import {catOneCards, catTwoCards} from "./CardDetail";
@@ -47,25 +47,27 @@ export default function CarouselMy(props) {
             <div className="carousel-container">
                 {props.info.map((item)=>{
                     return(
-                        <div className="card h-100 my-card car-card">
-                            <img src={item.img} className="card-img-top" alt="test"/>
-                            <div className="card-body my-card-body"> 
-                                <div className="card-heading">
-                                    {item.title}
-                                </div>
-                                <div className="card-content">
-                                    <p>Info</p>
-                                    <p>{item.Price}</p>
-                                </div>
-                                <div className="btn-carrier">
-                                    <Button 
-                                        shape="round" 
-                                        type="primary">
-                                        +<i class="fas fa fa-shopping-cart">
-                                    </i></Button>
+                        <Link to="/product">
+                            <div className="card h-100 my-card car-card">
+                                <img src={item.img} className="card-img-top" alt="test"/>
+                                <div className="card-body my-card-body"> 
+                                    <div className="card-heading">
+                                        {item.title}
+                                    </div>
+                                    <div className="card-content">
+                                        <p>Info</p>
+                                        <p>{item.Price}</p>
+                                    </div>
+                                    <div className="btn-carrier">
+                                        <Button 
+                                            shape="round" 
+                                            type="primary">
+                                            +<i class="fas fa fa-shopping-cart">
+                                        </i></Button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     );
 
                 })}

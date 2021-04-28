@@ -25,10 +25,23 @@ function reducer(state, action){
     switch(action.type){
         case "ADD_ITEM":
             console.log(action.payload.id)
-            return{
-                ...state,
-                basket:[...state.basket, action.payload]
+            let checkBasket = [...state.basket]
+            const checkPos = checkBasket.findIndex(
+                (basketItem)=>basketItem.id ===action.payload.id
+            )
+            if(checkPos>=0){
+                checkBasket[checkPos].count += 1
+                return{
+                    ...state,
+                    basket:checkBasket
+                }
+            }else{
+                return{
+                    ...state,
+                    basket:[...state.basket, action.payload]
+                }    
             }
+            
         case "DEL_ITEM":
             console.log(action.payload.id)
             let newBasket=[...state.basket]
@@ -57,6 +70,21 @@ function reducer(state, action){
                 ...state,
                 basket: modifyBasket
             }
+        
+        case "DEL_COUNT":
+            let delCountBasket = [...state.basket]
+            const delPos = delCountBasket.findIndex(
+                (basketItem)=>basketItem.id ===action.payload.id
+            )
+            if(delPos>=0){
+                delCountBasket[delPos].count -= 1
+            }else{
+                console.log("No item")
+            }
+            return{
+                ...state,
+                basket:delCountBasket
+            }
         case "ADD_USER":
             console.log(action.payload.addDetail)
             return {
@@ -80,6 +108,11 @@ function reducer(state, action){
                     status:action.payload.status,
                     orderAdd:action.payload.orderAdd
                 }
+            }
+        case "NEW_BASKET":
+            return{
+                ...state,
+                basket:action.payload.newBasket
             }
         default:
             return(state);

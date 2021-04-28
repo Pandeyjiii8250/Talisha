@@ -13,6 +13,33 @@ export default function Cart() {
     
     const[{basket, userInfo}, dispatch] = useStateValue()
 
+    function addCount(id){
+        // console.log(id)
+        dispatch({
+            type:'ADD_COUNT',
+            payload:{
+                id:id
+            }
+        })
+    }
+
+    function delCount(id, count){
+        if (count === 1){
+            dispatch({
+                type:'DEL_ITEM',
+                payload:{
+                    id:id
+                }
+            })
+        }else{
+            dispatch({
+                type:'DEL_COUNT',
+                payload:{
+                    id:id
+                }
+            })
+        }
+    }
     return (
         <div className="container">
             <div className="display-order">
@@ -43,11 +70,11 @@ export default function Cart() {
                                     <p>10kg</p>
                                 </div>
                                 <div>
-                                    <p className="cart-item-price">{item.price}/-</p>
+                                    <p className="cart-item-price">{item.Price}/-</p>
                                     <div className="cart-change-btn">
-                                        <Button type="primary">+</Button>
-                                        <div>1</div>
-                                        <Button>-</Button>
+                                        <Button type="primary" onClick={()=>{addCount(item.id)}}>+</Button>
+                                        <div>{item.count}</div>
+                                        <Button onClick={()=>{delCount(item.id, item.count)}}>-</Button>
                                     </div>
                                 </div>
                             </div>
@@ -57,42 +84,18 @@ export default function Cart() {
                 </Row>
             </CardsContainer>
             <div className="cart-bottom-btn">
-                <Button>
+                <Link to="/shopping"><Button>
                     Add More
-                </Button>
-                <Button
+                </Button></Link>
+                {/* check wether user has signed in or not */}
+                <Link to="/checkout"><Button
                     type="primary"
                     className="cart-place-order"
                 >
                     Place Order
-                </Button>
+                </Button></Link>
             </div>
-            {/* <div className="contain-items">
-                <div className="card-main-heading">
-                    <p>Current Cart</p>
-                </div>
-                <div>
-                {basket.map((item)=>{
-                    return(
-                        <div className='order-cart-item'>
-                            <div>
-                                <img src={item.img} alt="test"/>
-                            </div>
-                            <div>
-                                <p>{item.title}</p>
-                                <p>10kg</p>
-                            </div>
-                            <div>
-                                <p>{item.price}/-</p>
-                                <p>Button</p>
-                            </div>
-                        </div>
-                    )
-                })}
-                    
-                </div> */}
-                
-            {/* </div> */}
+            
         </div>
     )
 }
