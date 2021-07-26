@@ -30,8 +30,8 @@ const uiconfig ={
     //         return true;
     //       },
     // },
-    signInSuccessUrl: 'http://localhost:3000/',
-    // signInSuccessUrl: 'https://test-auth-7144a.web.app/',
+    // signInSuccessUrl: 'http://localhost:3000/',
+    signInSuccessUrl: 'https://test-auth-7144a.web.app/',
     signInOptions: [
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         {
